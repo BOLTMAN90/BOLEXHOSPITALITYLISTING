@@ -1,3 +1,5 @@
+import { FOOTER_HOME_LINKS } from "@/lib/locales";
+
 export const SITE_NAME = "BOLEXMAN";
 export const SITE_DESCRIPTION =
   "Discover hotels, resorts, villas, apartments, and curated luxury experiences.";
@@ -11,24 +13,26 @@ export const NAV_LINKS = [
 ] as const;
 
 export const FOOTER_LINKS = {
+  home: FOOTER_HOME_LINKS,
   discover: [
     { label: "Destinations", href: "/destinations" },
     { label: "Luxury Stays", href: "/stays" },
+    { label: "Map Discovery", href: "/stays#map" },
     { label: "Experiences", href: "/experiences" },
   ],
   host: [
-    { label: "List property", href: "/host" },
-    { label: "Host resources", href: "/host" },
-    { label: "Partner program", href: "/host" },
+    { label: "List property", href: "/host#list-your-property" },
+    { label: "Learn about hosting", href: "/host#learn-about-hosting" },
+    { label: "Host resources", href: "/host#learn-about-hosting" },
   ],
   company: [
-    { label: "About", href: "/" },
+    { label: "About", href: "/#why-bolexman" },
     { label: "Why BOLEXMAN", href: "/#why-bolexman" },
-    { label: "Careers", href: "/" },
+    { label: "Become a Host", href: "/host" },
   ],
   support: [
-    { label: "Help", href: "/" },
     { label: "Concierge", href: "/concierge" },
+    { label: "Guest Stories", href: "/stories" },
     { label: "Contact", href: "/concierge" },
   ],
 } as const;

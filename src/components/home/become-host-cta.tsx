@@ -40,13 +40,13 @@ export function BecomeHostCTA() {
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
-            href="/host"
+            href="/host#list-your-property"
             className="inline-flex h-12 items-center justify-center rounded-lg bg-bolex-accent px-8 text-base font-medium text-bolex-primary transition-colors hover:bg-bolex-accent/90"
           >
             List Your Property
           </Link>
           <Link
-            href="/host"
+            href="/host#learn-about-hosting"
             className="inline-flex h-12 items-center justify-center rounded-lg border border-white/30 px-8 text-base font-medium text-white transition-colors hover:bg-white/10"
           >
             Learn About Hosting

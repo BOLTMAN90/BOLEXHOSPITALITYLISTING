@@ -31,7 +31,7 @@ export function InteractiveMap({ showHeader = true }: InteractiveMapProps = {}) 
 
   if (!showHeader) {
     return (
-      <section className="section-padding bg-bolex-secondary">
+      <section id="map" className="section-padding scroll-mt-24 bg-bolex-secondary">
         <div className={CONTAINER_CLASS}>{mapBlock}</div>
       </section>
     );
@@ -39,6 +39,7 @@ export function InteractiveMap({ showHeader = true }: InteractiveMapProps = {}) 
 
   return (
     <SectionWrapper
+      id="map"
       eyebrow="Discover"
       title="Interactive Map Discovery"
       subtitle="Explore luxury stays across the globe. Click a marker to preview."

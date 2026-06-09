@@ -20,16 +20,16 @@ import {
 } from "@/lib/constants";
 
 const FOOTER_COLUMNS = [
+  { title: "Home", links: FOOTER_LINKS.home },
   { title: "Discover", links: FOOTER_LINKS.discover },
   { title: "Host", links: FOOTER_LINKS.host },
-  { title: "Company", links: FOOTER_LINKS.company },
   { title: "Support", links: FOOTER_LINKS.support },
 ] as const;
 
 const SOCIAL_LINKS = [
-  { label: "Instagram", href: "#", icon: Share2 },
-  { label: "Twitter", href: "#", icon: Globe },
-  { label: "LinkedIn", href: "#", icon: Mail },
+  { label: "Instagram", href: "https://instagram.com", icon: Share2 },
+  { label: "Twitter", href: "https://twitter.com", icon: Globe },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: Mail },
 ] as const;
 
 export function Footer() {
@@ -85,14 +85,16 @@ export function Footer() {
 
               <div className="flex items-center gap-3">
                 {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
-                  <Link
+                  <a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={label}
                     className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 text-bolex-secondary/80 transition-colors hover:border-bolex-accent hover:text-bolex-accent"
                   >
                     <Icon className="size-4" />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -136,11 +138,11 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-4 text-caption text-bolex-secondary/60">
-            <Link href="#" className="hover:text-bolex-secondary">
-              Privacy
+            <Link href="/concierge" className="hover:text-bolex-secondary">
+              Help
             </Link>
-            <Link href="#" className="hover:text-bolex-secondary">
-              Terms
+            <Link href="/host" className="hover:text-bolex-secondary">
+              List your property
             </Link>
             <span>© {new Date().getFullYear()} {SITE_NAME}</span>
           </div>

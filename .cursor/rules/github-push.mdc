@@ -1,0 +1,16 @@
+---
+description: Push project changes to GitHub when the user asks
+alwaysApply: true
+---
+
+# GitHub Push Workflow
+
+When the user asks to push to GitHub (e.g. "push to github", "commit and push", "update the repo"):
+
+1. Run `git status`, `git diff`, and `git log -3 --oneline` to review changes.
+2. Stage and commit all relevant changes with a clear message describing the work.
+3. Never commit secret env files (`.env`, `.env.local`). `.env.example` is safe.
+4. Push to `origin main` on `https://github.com/BOLTMAN90/BOLEXHOSPITALITYLISTING.git`.
+5. Confirm success with the latest commit hash and that local matches remote.
+
+Do not push unless the user explicitly asks in that conversation.

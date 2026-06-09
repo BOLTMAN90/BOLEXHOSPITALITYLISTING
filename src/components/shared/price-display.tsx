@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocale } from "@/contexts/locale-context";
 import { cn } from "@/lib/utils";
 
 interface PriceDisplayProps {
@@ -9,15 +12,18 @@ interface PriceDisplayProps {
 
 export function PriceDisplay({
   amount,
-  currency = "USD",
+  currency,
   suffix = "/ night",
   className,
 }: PriceDisplayProps) {
-  const formatted = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 0,
-  }).format(amount);
+  const { formatPrice, locale } = useLocale();
+  const formatted = currency
+    ? new Intl.NumberFormat(locale.locale, {
+        style: "currency",
+        currency,
+        maximumFractionDigits: 0,
+      }).format(amount)
+    : formatPrice(amount);
 
   return (
     <span className={cn("text-price font-price text-bolex-primary", className)}>

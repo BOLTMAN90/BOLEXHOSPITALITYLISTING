@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BecomeHostCTA } from "@/components/home/become-host-cta";
+import { HostPageContent } from "@/components/home/host-page-content";
 import { SiteShell } from "@/components/layout/site-shell";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export default function HostPage() {
   return (
     <SiteShell>
       <main>
-        <BecomeHostCTA />
+        <HostPageContent />
       </main>
     </SiteShell>
   );
