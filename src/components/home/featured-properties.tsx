@@ -15,12 +15,14 @@ interface FeaturedPropertiesProps {
   limit?: number;
   viewAllHref?: string;
   showHeader?: boolean;
+  id?: string;
 }
 
 export function FeaturedProperties({
   limit,
   viewAllHref,
   showHeader = true,
+  id,
 }: FeaturedPropertiesProps = {}) {
   const [activeCategory, setActiveCategory] = useState<PropertyType>("all");
   const filtered = filterPropertiesByCategory(properties, activeCategory);
@@ -60,7 +62,7 @@ export function FeaturedProperties({
 
   if (!showHeader) {
     return (
-      <section className="section-padding bg-white">
+      <section id={id} className="section-padding scroll-mt-24 bg-white">
         <div className={CONTAINER_CLASS}>{content}</div>
       </section>
     );
@@ -68,6 +70,7 @@ export function FeaturedProperties({
 
   return (
     <SectionWrapper
+      id={id}
       eyebrow="Handpicked"
       title="Featured Luxury Properties"
       subtitle="Every stay verified for exceptional quality, service, and design."

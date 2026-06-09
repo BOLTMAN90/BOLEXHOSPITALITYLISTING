@@ -20,12 +20,22 @@ export default function Home() {
     <SiteShell>
       <main className="bg-bolex-secondary">
         <HeroSection />
-        <AdvancedSearch />
-        <TrendingDestinations limit={4} viewAllHref="/destinations" />
-        <FeaturedProperties limit={3} viewAllHref="/stays" />
+        <div id="search" className="scroll-mt-24">
+          <AdvancedSearch />
+        </div>
+        <TrendingDestinations
+          id="destinations-preview"
+          limit={4}
+          viewAllHref="/destinations"
+        />
+        <FeaturedProperties
+          id="stays-preview"
+          limit={3}
+          viewAllHref="/stays"
+        />
         <WhyBolexman />
         <HomeExploreLinks />
-        <Testimonials viewAllHref="/stories" />
+        <Testimonials id="testimonials" viewAllHref="/stories" />
         <BecomeHostCTA />
       </main>
     </SiteShell>

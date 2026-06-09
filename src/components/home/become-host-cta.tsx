@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { useRequireAuth } from "@/hooks/use-require-auth";
 import { IMAGE_BLUR, imageSizes, optimizeUnsplashUrl } from "@/lib/image-utils";
 
 const HOST_IMAGE = optimizeUnsplashUrl(
@@ -11,8 +11,10 @@ const HOST_IMAGE = optimizeUnsplashUrl(
 );
 
 export function BecomeHostCTA() {
+  const { requireAuth } = useRequireAuth();
+
   return (
-    <section className="relative min-h-[480px] overflow-hidden">
+    <section id="become-host" className="relative min-h-[480px] scroll-mt-24 overflow-hidden">
       <Image
         src={HOST_IMAGE}
         alt="Luxury property interior"
@@ -39,18 +41,20 @@ export function BecomeHostCTA() {
           Hosts earn up to $12,000/month
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/host#list-your-property"
+          <button
+            type="button"
+            onClick={() => requireAuth("/host#list-your-property")}
             className="inline-flex h-12 items-center justify-center rounded-lg bg-bolex-accent px-8 text-base font-medium text-bolex-primary transition-colors hover:bg-bolex-accent/90"
           >
             List Your Property
-          </Link>
-          <Link
-            href="/host#learn-about-hosting"
+          </button>
+          <button
+            type="button"
+            onClick={() => requireAuth("/host#learn-about-hosting")}
             className="inline-flex h-12 items-center justify-center rounded-lg border border-white/30 px-8 text-base font-medium text-white transition-colors hover:bg-white/10"
           >
             Learn About Hosting
-          </Link>
+          </button>
         </div>
       </ScrollReveal>
     </section>

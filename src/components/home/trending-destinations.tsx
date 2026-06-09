@@ -12,12 +12,14 @@ interface TrendingDestinationsProps {
   limit?: number;
   viewAllHref?: string;
   showHeader?: boolean;
+  id?: string;
 }
 
 export function TrendingDestinations({
   limit,
   viewAllHref,
   showHeader = true,
+  id,
 }: TrendingDestinationsProps = {}) {
   const [emblaRef] = useEmblaCarousel({
     align: "start",
@@ -53,7 +55,7 @@ export function TrendingDestinations({
 
   if (!showHeader) {
     return (
-      <section className="section-padding bg-bolex-secondary">
+      <section id={id} className="section-padding scroll-mt-24 bg-bolex-secondary">
         <div className={CONTAINER_CLASS}>{content}</div>
       </section>
     );
@@ -61,6 +63,7 @@ export function TrendingDestinations({
 
   return (
     <SectionWrapper
+      id={id}
       eyebrow="Explore"
       title="Trending Destinations"
       subtitle="The world's most sought-after locales, curated for the discerning traveler."

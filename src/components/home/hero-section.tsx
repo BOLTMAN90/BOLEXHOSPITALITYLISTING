@@ -86,7 +86,7 @@ export function HeroSection() {
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
-            href="/stays"
+            href="/#stays-preview"
             className="inline-flex h-12 items-center justify-center rounded-lg bg-bolex-accent px-8 text-base font-medium text-bolex-primary transition-colors hover:bg-bolex-accent/90"
           >
             Explore Stays

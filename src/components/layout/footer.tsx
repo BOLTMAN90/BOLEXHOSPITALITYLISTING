@@ -13,18 +13,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { useAuthUI } from "@/contexts/auth-ui-context";
+import { useUser } from "@/contexts/user-context";
 import {
   CONTAINER_CLASS,
   FOOTER_LINKS,
   SITE_NAME,
 } from "@/lib/constants";
-
-const FOOTER_COLUMNS = [
-  { title: "Home", links: FOOTER_LINKS.home },
-  { title: "Discover", links: FOOTER_LINKS.discover },
-  { title: "Host", links: FOOTER_LINKS.host },
-  { title: "Support", links: FOOTER_LINKS.support },
-] as const;
+import { FOOTER_HOME_SECTION_LINKS } from "@/lib/locales";
 
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://instagram.com", icon: Share2 },
@@ -34,6 +30,27 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const [email, setEmail] = useState("");
+  const { user } = useUser();
+  const { openSignIn } = useAuthUI();
+
+  const footerColumns = user
+    ? [
+        { title: "Home", links: FOOTER_HOME_SECTION_LINKS },
+        { title: "Discover", links: FOOTER_LINKS.discover },
+        { title: "Host", links: FOOTER_LINKS.host },
+        { title: "Support", links: FOOTER_LINKS.support },
+      ]
+    : [{ title: "Homepage", links: FOOTER_HOME_SECTION_LINKS }];
+
+  const handleProtectedClick = (
+    event: React.MouseEvent,
+    href: string
+  ) => {
+    if (user || href.startsWith("/#") || href === "/") return;
+    event.preventDefault();
+    openSignIn();
+    toast.message("Sign in to access this section.");
+  };
 
   const handleNewsletter = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -99,8 +116,14 @@ export function Footer() {
               </div>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {FOOTER_COLUMNS.map((column) => (
+            <div
+              className={
+                user
+                  ? "grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+                  : "grid gap-8 sm:grid-cols-2"
+              }
+            >
+              {footerColumns.map((column) => (
                 <div key={column.title} className="space-y-4">
                   <h3 className="text-caption uppercase tracking-[0.15em] text-bolex-accent">
                     {column.title}
@@ -110,6 +133,7 @@ export function Footer() {
                       <li key={link.label}>
                         <Link
                           href={link.href}
+                          onClick={(event) => handleProtectedClick(event, link.href)}
                           className="text-sm text-bolex-secondary/75 transition-colors hover:text-bolex-secondary"
                         >
                           {link.label}
@@ -138,12 +162,24 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap gap-4 text-caption text-bolex-secondary/60">
-            <Link href="/concierge" className="hover:text-bolex-secondary">
-              Help
-            </Link>
-            <Link href="/host" className="hover:text-bolex-secondary">
-              List your property
-            </Link>
+            {user ? (
+              <>
+                <Link href="/concierge" className="hover:text-bolex-secondary">
+                  Help
+                </Link>
+                <Link href="/host#list-your-property" className="hover:text-bolex-secondary">
+                  List your property
+                </Link>
+              </>
+            ) : (
+              <button
+                type="button"
+                onClick={openSignIn}
+                className="hover:text-bolex-secondary"
+              >
+                Sign in to explore
+              </button>
+            )}
             <span>© {new Date().getFullYear()} {SITE_NAME}</span>
           </div>
         </div>

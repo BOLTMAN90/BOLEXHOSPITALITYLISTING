@@ -19,6 +19,7 @@ export interface User {
 
 interface UserContextValue {
   user: User | null;
+  isReady: boolean;
   signIn: (user: User) => void;
   signUp: (user: User) => void;
   signOut: () => void;
@@ -38,9 +39,11 @@ function loadUser(): User | null {
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     setUser(loadUser());
+    setIsReady(true);
   }, []);
 
   const persist = useCallback((next: User | null) => {
@@ -74,8 +77,8 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
   }, [persist]);
 
   const value = useMemo(
-    () => ({ user, signIn, signUp, signOut }),
-    [user, signIn, signUp, signOut]
+    () => ({ user, isReady, signIn, signUp, signOut }),
+    [user, isReady, signIn, signUp, signOut]
   );
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

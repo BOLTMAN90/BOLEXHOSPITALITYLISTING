@@ -24,13 +24,18 @@ export const LOCALES = [
 
 export type LocaleId = (typeof LOCALES)[number]["id"];
 
-export const FOOTER_HOME_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Luxury Stays", href: "/stays" },
-  { label: "Map Discovery", href: "/stays#map" },
-  { label: "Destinations", href: "/destinations" },
-  { label: "Experiences", href: "/experiences" },
-  { label: "Concierge", href: "/concierge" },
-  { label: "Guest Stories", href: "/stories" },
-  { label: "Become a Host", href: "/host" },
+export const HOME_NAV_LINKS = [
+  { label: "Search", href: "/#search" },
+  { label: "Luxury Stays", href: "/#stays-preview" },
+  { label: "Destinations", href: "/#destinations-preview" },
+  { label: "Why BOLEXMAN", href: "/#why-bolexman" },
+  { label: "Guest Stories", href: "/#testimonials" },
+  { label: "Become a Host", href: "/#become-host" },
 ] as const;
+
+export const FOOTER_HOME_SECTION_LINKS = [
+  { label: "Home", href: "/" },
+  ...HOME_NAV_LINKS,
+] as const;
+
+export const FOOTER_HOME_LINKS = FOOTER_HOME_SECTION_LINKS;

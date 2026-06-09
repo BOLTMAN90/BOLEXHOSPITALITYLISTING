@@ -15,11 +15,13 @@ import { testimonials } from "@/data/testimonials";
 interface TestimonialsProps {
   viewAllHref?: string;
   showHeader?: boolean;
+  id?: string;
 }
 
 export function Testimonials({
   viewAllHref,
   showHeader = true,
+  id,
 }: TestimonialsProps = {}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 5000, stopOnInteraction: true }),
@@ -100,7 +102,7 @@ export function Testimonials({
 
   if (!showHeader) {
     return (
-      <section className="section-padding bg-white">
+      <section id={id} className="section-padding scroll-mt-24 bg-white">
         <div className={CONTAINER_CLASS}>{content}</div>
       </section>
     );
@@ -108,6 +110,7 @@ export function Testimonials({
 
   return (
     <SectionWrapper
+      id={id}
       eyebrow="Guest Stories"
       title="Testimonials & Reviews"
       subtitle="Hear from travelers who discovered their perfect journey with BOLEXMAN."
