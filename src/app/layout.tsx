@@ -26,7 +26,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "BOLEXMAN — Stay Beyond Expectations",
   description:
-    "Luxury villas, hotels, apartments and curated experiences for modern travelers.",
+    "Luxury villas, hotels, apartments, and curated experiences for modern travelers.",
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [{ url: "/favicon.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

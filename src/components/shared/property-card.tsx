@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BadgeCheck, Crown, Heart, TrendingUp, Trophy } from "lucide-react";
+import { BadgeCheck, Crown, Heart, Star, TrendingUp, Trophy } from "lucide-react";
 import { ListingImage } from "@/components/shared/listing-image";
 import { PropertyDetailDialog } from "@/components/shared/property-detail-dialog";
 import { PriceDisplay } from "@/components/shared/price-display";
@@ -29,7 +29,7 @@ const BADGE_CONFIG: Record<
     className: "bg-bolex-primary/90 text-white",
   },
   luxury: {
-    label: "Luxury",
+    label: "Luxury Collection",
     icon: Crown,
     className: "bg-bolex-accent text-bolex-primary",
   },
@@ -37,6 +37,11 @@ const BADGE_CONFIG: Record<
     label: "Trending",
     icon: TrendingUp,
     className: "bg-white/95 text-bolex-primary",
+  },
+  "top-rated": {
+    label: "Top Rated",
+    icon: Star,
+    className: "bg-bolex-primary/90 text-white",
   },
 };
 

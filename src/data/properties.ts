@@ -21,7 +21,7 @@ export const properties: Property[] = [
     reviewCount: 312,
     amenities: ["Private pool", "Butler service", "Overwater villa", "Spa"],
     featured: true,
-    badges: ["verified", "luxury"],
+    badges: ["verified", "luxury", "top-rated"],
     moods: ["romantic", "wellness", "celebration"],
     description:
       "An ultra-private island resort where every villa floats above turquoise water. Expect personal butlers, a Greg Norman golf course, and dining by a Michelin-trained chef — all wrapped in barefoot luxury.",
@@ -45,7 +45,7 @@ export const properties: Property[] = [
     reviewCount: 428,
     amenities: ["Caldera view", "Infinity pool", "Fine dining"],
     featured: true,
-    badges: ["guest-favorite", "luxury"],
+    badges: ["guest-favorite", "luxury", "top-rated"],
     moods: ["romantic", "celebration"],
     description:
       "Cliffside suites carved into Oia's volcanic rock, each with a private plunge pool facing the caldera. Sunsets from your terrace, Aegean breezes, and refined Cycladic minimalism define every moment.",

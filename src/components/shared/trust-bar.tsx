@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, CreditCard, Headphones, ShieldCheck, Zap } from "lucide-react";
+import { BadgeCheck, CreditCard, Headphones, ShieldCheck, Sparkles, Zap } from "lucide-react";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { TRUST_BUILDERS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,7 @@ const ICONS = {
   secure: ShieldCheck,
   price: CreditCard,
   concierge: Headphones,
+  experiences: Sparkles,
   instant: Zap,
 } as const;
 

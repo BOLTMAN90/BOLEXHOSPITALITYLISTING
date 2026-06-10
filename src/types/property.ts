@@ -1,6 +1,6 @@
 export type PropertyCategory = "hotel" | "resort" | "villa" | "apartment";
 
-export type PropertyBadge = "verified" | "guest-favorite" | "luxury" | "trending";
+export type PropertyBadge = "verified" | "guest-favorite" | "luxury" | "trending" | "top-rated";
 
 export interface Property {
   id: string;

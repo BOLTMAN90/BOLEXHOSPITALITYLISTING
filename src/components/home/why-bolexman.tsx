@@ -1,81 +1,77 @@
+"use client";
+
 import {
-  Crown,
+  BadgeCheck,
+  CreditCard,
   Headphones,
   ShieldCheck,
   Sparkles,
+  Zap,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { SectionWrapper } from "@/components/layout/section-wrapper";
+import { TRUST_BUILDERS } from "@/lib/constants";
 
-const PILLARS = [
-  {
-    icon: Crown,
-    title: "Curated Luxury Only",
+const TRUST_DETAILS: Record<
+  (typeof TRUST_BUILDERS)[number]["id"],
+  { icon: typeof BadgeCheck; description: string }
+> = {
+  verified: {
+    icon: BadgeCheck,
     description:
-      "Every property vetted against our exacting standards for design, service, and exclusivity.",
+      "Every listing is personally vetted for quality, authenticity, and guest satisfaction.",
   },
-  {
-    icon: Sparkles,
-    title: "AI-Personalized Journeys",
-    description:
-      "Intelligent recommendations tailored to your preferences, mood, and travel style.",
-  },
-  {
-    icon: Headphones,
-    title: "24/7 Concierge Access",
-    description:
-      "Dedicated support before, during, and after your stay — wherever you are.",
-  },
-  {
+  secure: {
     icon: ShieldCheck,
-    title: "Verified Premium Hosts",
     description:
-      "Trusted hosts with proven track records of exceptional guest experiences.",
+      "Bank-grade encryption and trusted payment partners protect every transaction.",
   },
-];
-
-const STATS = [
-  { value: "2,400+", label: "Properties" },
-  { value: "180+", label: "Destinations" },
-  { value: "98%", label: "Guest Satisfaction" },
-];
+  price: {
+    icon: CreditCard,
+    description:
+      "Find a lower verified rate elsewhere and we will match it — guaranteed.",
+  },
+  concierge: {
+    icon: Headphones,
+    description:
+      "Dedicated luxury concierge support before, during, and after your stay.",
+  },
+  experiences: {
+    icon: Sparkles,
+    description:
+      "Handpicked experiences — from private chefs to yacht charters and safaris.",
+  },
+  instant: {
+    icon: Zap,
+    description:
+      "Confirm your stay in seconds with real-time availability and instant booking.",
+  },
+};
 
 export function WhyBolexman() {
   return (
     <SectionWrapper
       id="why-bolexman"
-      eyebrow="The BOLEXMAN Difference"
-      title="Why BOLEXMAN"
-      subtitle="More than a marketplace — a luxury hospitality ecosystem built for those who expect the extraordinary."
+      eyebrow="Trust & Excellence"
+      title="Why Choose BOLEXMAN"
+      subtitle="A luxury hospitality marketplace built on verified quality, seamless booking, and world-class concierge care."
       className="bg-bolex-secondary"
     >
-      <div className="grid gap-6 sm:grid-cols-2">
-        {PILLARS.map((pillar, index) => (
-          <ScrollReveal key={pillar.title} delay={index * 0.06}>
-            <div className="rounded-2xl bg-white p-8 shadow-luxury">
-              <pillar.icon className="size-8 text-bolex-accent" />
-              <h3 className="text-h3 mt-5 text-bolex-primary">{pillar.title}</h3>
-              <p className="text-body mt-3 text-bolex-primary/65">
-                {pillar.description}
-              </p>
-            </div>
-          </ScrollReveal>
-        ))}
-      </div>
-
-      <div className="mt-14 grid gap-8 border-t border-bolex-primary/10 pt-14 sm:grid-cols-3">
-        {STATS.map((stat, index) => (
-          <ScrollReveal key={stat.label} delay={index * 0.05}>
-            <div className="text-center">
-              <p className="font-price text-4xl font-semibold text-bolex-primary md:text-5xl">
-                {stat.value}
-              </p>
-              <p className="text-caption mt-2 uppercase tracking-wider text-bolex-primary/50">
-                {stat.label}
-              </p>
-            </div>
-          </ScrollReveal>
-        ))}
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {TRUST_BUILDERS.map((item, index) => {
+          const { icon: Icon, description } = TRUST_DETAILS[item.id];
+          return (
+            <ScrollReveal key={item.id} delay={index * 0.05}>
+              <div className="group h-full rounded-2xl border border-bolex-primary/5 bg-white p-7 shadow-luxury transition-all duration-500 hover:-translate-y-1 hover:border-bolex-accent/30 hover:shadow-lift luxury-glow-hover">
+                <div className="inline-flex size-12 items-center justify-center rounded-xl bg-bolex-accent/10 text-bolex-accent transition-colors group-hover:bg-bolex-accent group-hover:text-bolex-primary">
+                  <Icon className="size-5" />
+                </div>
+                <h3 className="text-h3 mt-5 text-bolex-primary">{item.label}</h3>
+                <p className="text-body mt-3 text-bolex-muted">{description}</p>
+              </div>
+            </ScrollReveal>
+          );
+        })}
       </div>
     </SectionWrapper>
   );

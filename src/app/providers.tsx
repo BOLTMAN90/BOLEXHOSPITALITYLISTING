@@ -3,6 +3,7 @@
 import { LazyMotion, domAnimation } from "framer-motion";
 import { Toaster } from "@/components/ui/sonner";
 import { PageLoader } from "@/components/layout/page-loader";
+import { ScrollProgress } from "@/components/layout/scroll-progress";
 import { SmoothScroll } from "@/components/layout/smooth-scroll";
 import { AuthUIProvider } from "@/contexts/auth-ui-context";
 import { LocaleProvider } from "@/contexts/locale-context";
@@ -18,6 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <UserDataProvider>
               <AuthUIProvider>
                 <PageLoader />
+                <ScrollProgress />
                 {children}
                 <Toaster richColors position="top-center" />
               </AuthUIProvider>

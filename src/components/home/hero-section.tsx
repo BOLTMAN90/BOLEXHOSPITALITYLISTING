@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { AnimatedCounter } from "@/components/shared/animated-counter";
+import { TextReveal } from "@/components/shared/text-reveal";
 import { useAiAssistant } from "@/components/features/ai-assistant-context";
 import { useLazyRichMedia } from "@/hooks/use-lazy-rich-media";
 import { heroParallax } from "@/lib/animations";
@@ -23,7 +24,7 @@ const HERO_POSTER = optimizeUnsplashUrl(
 );
 
 const HERO_VIDEO =
-  "https://videos.pexels.com/video-files/3571264/3571264-hd_1920_1080_25fps.mp4";
+  "https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4";
 
 export function HeroSection() {
   const { openAssistant } = useAiAssistant();
@@ -83,21 +84,19 @@ export function HeroSection() {
         >
           {SITE_TAGLINE}
         </motion.p>
-        <motion.h1
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+        <TextReveal
+          as="h1"
+          text="Discover Exceptional Hospitality Experiences"
+          delay={0.15}
           className="text-display max-w-5xl text-white"
-        >
-          Discover Exceptional Hospitality Experiences
-        </motion.h1>
+        />
         <motion.p
           initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
           className="text-body-lg mx-auto mt-6 max-w-2xl text-white/85"
         >
-          Luxury villas, hotels, apartments and curated experiences for modern
+          Luxury villas, hotels, apartments, and curated experiences for modern
           travelers.
         </motion.p>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -66,11 +67,21 @@ export function Navbar() {
         <Link
           href="/"
           className={cn(
-            "font-heading text-xl font-medium tracking-[0.08em] transition-colors md:text-2xl",
+            "inline-flex items-center gap-2.5 transition-opacity hover:opacity-90",
             showSolidNav ? "text-bolex-secondary" : "text-white"
           )}
         >
-          {SITE_NAME}
+          <Image
+            src="/favicon.png"
+            alt=""
+            width={36}
+            height={36}
+            className="size-8 rounded-md md:size-9"
+            priority
+          />
+          <span className="font-heading text-xl font-medium tracking-[0.08em] md:text-2xl">
+            {SITE_NAME}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 xl:gap-8 lg:flex">

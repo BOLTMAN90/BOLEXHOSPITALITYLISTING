@@ -3,10 +3,10 @@ import { FOOTER_HOME_LINKS } from "@/lib/locales";
 export const SITE_NAME = "BOLEXMAN";
 export const SITE_TAGLINE = "Stay Beyond Expectations";
 export const SITE_DESCRIPTION =
-  "Luxury villas, hotels, apartments and curated experiences for modern travelers.";
+  "Luxury villas, hotels, apartments, and curated experiences for modern travelers.";
 
 export const TRUST_METRICS = [
-  { label: "Properties", value: 10000, suffix: "+" },
+  { label: "Properties", value: 15000, suffix: "+" },
   { label: "Destinations", value: 50, suffix: "+" },
   { label: "Happy Guests", value: 25000, suffix: "+" },
   { label: "Average Rating", value: 4.9, suffix: "", decimals: 1 },
@@ -17,6 +17,7 @@ export const TRUST_BUILDERS = [
   { id: "secure", label: "Secure Payments" },
   { id: "price", label: "Best Price Guarantee" },
   { id: "concierge", label: "24/7 Concierge" },
+  { id: "experiences", label: "Luxury Experiences" },
   { id: "instant", label: "Instant Booking" },
 ] as const;
 
@@ -79,6 +80,54 @@ export const FEATURED_COLLECTIONS = [
   },
 ] as const;
 
+export const SIGNATURE_COLLECTIONS = [
+  {
+    id: "presidential",
+    title: "Presidential Suites",
+    subtitle: "The pinnacle of hospitality",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays",
+    featured: true,
+  },
+  {
+    id: "beachfront-villas",
+    title: "Beachfront Villas",
+    subtitle: "Oceanfront sanctuaries",
+    image:
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays",
+    featured: false,
+  },
+  {
+    id: "private-islands",
+    title: "Private Islands",
+    subtitle: "Ultimate seclusion",
+    image:
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays",
+    featured: false,
+  },
+  {
+    id: "luxury-resorts",
+    title: "Luxury Resorts",
+    subtitle: "World-class service",
+    image:
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays",
+    featured: false,
+  },
+  {
+    id: "penthouses",
+    title: "Penthouse Apartments",
+    subtitle: "Skyline living elevated",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays",
+    featured: false,
+  },
+] as const;
+
 export const LUXURY_CONCIERGE_SERVICES = [
   { id: "airport", title: "Airport Pickup", icon: "plane" },
   { id: "chauffeur", title: "Chauffeur Services", icon: "car" },
@@ -93,6 +142,7 @@ export const NAV_LINKS = [
   { label: "Stays", href: "/stays" },
   { label: "Destinations", href: "/destinations" },
   { label: "Experiences", href: "/experiences" },
+  { label: "Collections", href: "/collections" },
   { label: "Concierge", href: "/concierge" },
   { label: "Testimonials", href: "/testimonials" },
 ] as const;

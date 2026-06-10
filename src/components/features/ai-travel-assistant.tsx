@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Bot, Send, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -117,10 +118,15 @@ function ChatPanel({
 }
 
 export function AITravelAssistant() {
+  const pathname = usePathname();
   const { open, setOpen } = useAiAssistant();
   const isMobile = useIsMobile();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
+  const isDashboard =
+    pathname === "/dashboard" || pathname.startsWith("/dashboard/");
+
+  if (isDashboard) return null;
 
   const sendMessage = (text: string) => {
     const trimmed = text.trim();

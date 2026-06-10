@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FeaturedCollections } from "@/components/home/featured-collections";
+import { SignatureCollection } from "@/components/home/signature-collection";
 import { PageHero } from "@/components/layout/page-hero";
 import { SiteShell } from "@/components/layout/site-shell";
 
@@ -19,6 +20,7 @@ export default function CollectionsPage() {
       />
       <main className="bg-bolex-secondary">
         <FeaturedCollections showHeader={false} />
+        <SignatureCollection />
       </main>
     </SiteShell>
   );
