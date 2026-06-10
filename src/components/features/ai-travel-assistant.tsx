@@ -55,7 +55,7 @@ function ChatPanel({
       <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto pr-1">
         {messages.length === 0 ? (
           <div className="rounded-xl bg-bolex-secondary/80 p-4 text-sm text-bolex-primary/70">
-            <p className="font-medium text-bolex-primary">Hello, I&apos;m your BOLEXMAN travel assistant.</p>
+            <p className="font-medium text-bolex-primary">Hello, I&apos;m BOLEXMAN AI.</p>
             <p className="mt-2">
               Ask me anything — BOLEXMAN stays, destinations, experiences, budgets,
               weather, visas, packing, or trip planning. I answer based on your question.
@@ -155,10 +155,13 @@ export function AITravelAssistant() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 inline-flex size-14 items-center justify-center rounded-full bg-bolex-accent text-bolex-primary shadow-lift transition-transform hover:scale-105 hover:bg-bolex-accent/90"
-        aria-label="Open AI travel assistant"
+        className="fixed bottom-20 right-4 z-50 flex items-center gap-2 rounded-full border border-bolex-accent/30 bg-bolex-primary px-4 py-3 text-white shadow-lift transition-all hover:scale-[1.02] hover:border-bolex-accent/60 lg:bottom-6 lg:right-6 lg:px-5"
+        aria-label="Open BOLEXMAN AI travel assistant"
       >
-        <Sparkles className="size-6" />
+        <span className="inline-flex size-9 items-center justify-center rounded-full bg-bolex-accent text-bolex-primary">
+          <Sparkles className="size-4" />
+        </span>
+        <span className="hidden text-sm font-medium sm:inline">BOLEXMAN AI</span>
       </button>
 
       {isMobile ? (

@@ -13,6 +13,7 @@ interface CuratedExperiencesProps {
   viewAllHref?: string;
   showHeader?: boolean;
   showAll?: boolean;
+  embed?: boolean;
 }
 
 export function CuratedExperiences({
@@ -20,6 +21,7 @@ export function CuratedExperiences({
   viewAllHref,
   showHeader = true,
   showAll = false,
+  embed = false,
 }: CuratedExperiencesProps = {}) {
   const featured = experiences.find((e) => e.featured) ?? experiences[0];
   const rest = showAll
@@ -64,6 +66,10 @@ export function CuratedExperiences({
       ) : null}
     </>
   );
+
+  if (embed) {
+    return <>{content}</>;
+  }
 
   if (!showHeader) {
     return (

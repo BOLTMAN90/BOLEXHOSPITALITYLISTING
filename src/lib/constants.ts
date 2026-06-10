@@ -1,8 +1,92 @@
 import { FOOTER_HOME_LINKS } from "@/lib/locales";
 
 export const SITE_NAME = "BOLEXMAN";
+export const SITE_TAGLINE = "Stay Beyond Expectations";
 export const SITE_DESCRIPTION =
-  "Discover hotels, resorts, villas, apartments, and curated luxury experiences.";
+  "Luxury villas, hotels, apartments and curated experiences for modern travelers.";
+
+export const TRUST_METRICS = [
+  { label: "Properties", value: 10000, suffix: "+" },
+  { label: "Destinations", value: 50, suffix: "+" },
+  { label: "Happy Guests", value: 25000, suffix: "+" },
+  { label: "Average Rating", value: 4.9, suffix: "", decimals: 1 },
+] as const;
+
+export const TRUST_BUILDERS = [
+  { id: "verified", label: "Verified Properties" },
+  { id: "secure", label: "Secure Payments" },
+  { id: "price", label: "Best Price Guarantee" },
+  { id: "concierge", label: "24/7 Concierge" },
+  { id: "instant", label: "Instant Booking" },
+] as const;
+
+export const QUICK_SEARCH_PILLS = [
+  { id: "hotel", label: "Hotels" },
+  { id: "villa", label: "Villas" },
+  { id: "apartment", label: "Apartments" },
+  { id: "resort", label: "Resorts" },
+  { id: "experiences", label: "Experiences", href: "/experiences" },
+] as const;
+
+export const FEATURED_COLLECTIONS = [
+  {
+    id: "beachfront",
+    title: "Beachfront Villas",
+    subtitle: "Oceanfront sanctuaries",
+    image:
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays",
+  },
+  {
+    id: "romantic",
+    title: "Romantic Escapes",
+    subtitle: "For two, perfectly curated",
+    image:
+      "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays",
+  },
+  {
+    id: "family",
+    title: "Family Retreats",
+    subtitle: "Space, comfort & adventure",
+    image:
+      "https://images.unsplash.com/photo-1510796657865-4aa892e17309?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays",
+  },
+  {
+    id: "resorts",
+    title: "Luxury Resorts",
+    subtitle: "World-class hospitality",
+    image:
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays",
+  },
+  {
+    id: "business",
+    title: "Business Travel",
+    subtitle: "Effortless city stays",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays",
+  },
+  {
+    id: "weekend",
+    title: "Weekend Getaways",
+    subtitle: "Short escapes, lasting memories",
+    image:
+      "https://images.unsplash.com/photo-1516483638264-f4d0f3ada2e8?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays",
+  },
+] as const;
+
+export const LUXURY_CONCIERGE_SERVICES = [
+  { id: "airport", title: "Airport Pickup", icon: "plane" },
+  { id: "chauffeur", title: "Chauffeur Services", icon: "car" },
+  { id: "rental", title: "Car Rental", icon: "key" },
+  { id: "guide", title: "Tour Guide", icon: "map" },
+  { id: "security", title: "Private Security", icon: "shield" },
+  { id: "vip", title: "VIP Experiences", icon: "sparkles" },
+] as const;
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },

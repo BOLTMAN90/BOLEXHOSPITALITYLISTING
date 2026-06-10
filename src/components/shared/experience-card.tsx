@@ -27,7 +27,7 @@ export function ExperienceCard({
     <>
       <article
         className={cn(
-          "group relative cursor-pointer overflow-hidden rounded-2xl shadow-luxury transition-shadow hover:shadow-lift",
+          "group relative cursor-pointer overflow-hidden rounded-2xl border border-transparent shadow-luxury transition-all duration-500 hover:-translate-y-1 hover:border-bolex-accent/40 hover:shadow-lift",
           featured && "min-h-[420px]",
           className
         )}

@@ -21,6 +21,7 @@ export const properties: Property[] = [
     reviewCount: 312,
     amenities: ["Private pool", "Butler service", "Overwater villa", "Spa"],
     featured: true,
+    badges: ["verified", "luxury"],
     moods: ["romantic", "wellness", "celebration"],
     description:
       "An ultra-private island resort where every villa floats above turquoise water. Expect personal butlers, a Greg Norman golf course, and dining by a Michelin-trained chef — all wrapped in barefoot luxury.",
@@ -44,6 +45,7 @@ export const properties: Property[] = [
     reviewCount: 428,
     amenities: ["Caldera view", "Infinity pool", "Fine dining"],
     featured: true,
+    badges: ["guest-favorite", "luxury"],
     moods: ["romantic", "celebration"],
     description:
       "Cliffside suites carved into Oia's volcanic rock, each with a private plunge pool facing the caldera. Sunsets from your terrace, Aegean breezes, and refined Cycladic minimalism define every moment.",
@@ -67,6 +69,7 @@ export const properties: Property[] = [
     reviewCount: 891,
     amenities: ["Sky pool", "Michelin dining", "Private beach"],
     featured: true,
+    badges: ["verified", "trending"],
     moods: ["celebration", "family", "adventure"],
     description:
       "Dubai's most audacious address — sky pools suspended between towers, celebrity chef restaurants, and a private beach on the Palm. Bold architecture meets impeccable Arabian hospitality.",
@@ -89,6 +92,7 @@ export const properties: Property[] = [
     rating: 4.9,
     reviewCount: 267,
     amenities: ["Jungle views", "Yoga pavilion", "Organic cuisine"],
+    badges: ["guest-favorite"],
     moods: ["wellness", "solo-retreat", "romantic"],
     description:
       "A wellness sanctuary nestled in Bali's emerald rice terraces. COMO Shambhala spa rituals, open-air yoga, and organic Indonesian cuisine restore body and mind in equal measure.",
@@ -112,6 +116,7 @@ export const properties: Property[] = [
     reviewCount: 94,
     amenities: ["Ski-in access", "Private chef", "Sauna", "Fireplace"],
     featured: true,
+    badges: ["luxury", "verified"],
     moods: ["adventure", "family", "celebration"],
     description:
       "A timber chalet with Matterhorn views, ski-in access, and a private chef who prepares fondue by the fireplace. Après-ski culture elevated to five-star comfort.",

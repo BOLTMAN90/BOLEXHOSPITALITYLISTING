@@ -24,9 +24,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "BOLEXMAN — Luxury Hospitality Marketplace",
+  title: "BOLEXMAN — Stay Beyond Expectations",
   description:
-    "Discover hotels, resorts, villas, apartments, and curated luxury experiences.",
+    "Luxury villas, hotels, apartments and curated experiences for modern travelers.",
 };
 
 export default function RootLayout({

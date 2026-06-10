@@ -33,7 +33,8 @@ import { SmartMoodSearch } from "@/components/features/smart-mood-search";
 import { GlassPanel } from "@/components/shared/glass-panel";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { destinations } from "@/data/destinations";
-import { CONTAINER_CLASS, PROPERTY_CATEGORIES } from "@/lib/constants";
+import { CONTAINER_CLASS, PROPERTY_CATEGORIES, QUICK_SEARCH_PILLS } from "@/lib/constants";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { PropertyType } from "@/types/search";
 
@@ -178,6 +179,34 @@ function SearchFields({
         </Popover>
       </div>
 
+      <div className="flex flex-wrap gap-2">
+        {QUICK_SEARCH_PILLS.map((pill) =>
+          "href" in pill && pill.href ? (
+            <Link
+              key={pill.id}
+              href={pill.href}
+              className="rounded-full border border-bolex-primary/10 px-4 py-2 text-xs font-medium text-bolex-text transition-all hover:border-bolex-accent/50 hover:bg-bolex-accent/5 hover:text-bolex-primary sm:text-sm"
+            >
+              {pill.label}
+            </Link>
+          ) : (
+            <button
+              key={pill.id}
+              type="button"
+              onClick={() => setPropertyType(pill.id as PropertyType)}
+              className={cn(
+                "rounded-full border px-4 py-2 text-xs font-medium transition-all sm:text-sm",
+                propertyType === pill.id
+                  ? "border-bolex-accent bg-bolex-accent/10 text-bolex-primary"
+                  : "border-bolex-primary/10 text-bolex-text hover:border-bolex-accent/50 hover:bg-bolex-accent/5"
+              )}
+            >
+              {pill.label}
+            </button>
+          )
+        )}
+      </div>
+
       <Tabs
         value={propertyType}
         onValueChange={(v) => setPropertyType(v as PropertyType)}
@@ -248,9 +277,12 @@ export function AdvancedSearch() {
 
   return (
     <>
-      <div className={cn(CONTAINER_CLASS, "relative z-20 -mt-12 mb-8")}>
+      <div className={cn(CONTAINER_CLASS, "relative z-20 -mt-12 mb-8 space-y-4")}>
         <ScrollReveal className="hidden md:block">
-          <GlassPanel className="p-4 shadow-lift md:p-6">
+          <GlassPanel className="luxury-glow p-5 shadow-lift md:p-7">
+            <p className="text-caption mb-4 uppercase tracking-[0.15em] text-bolex-accent">
+              Find Your Perfect Stay
+            </p>
             <SearchFields {...fieldProps} />
           </GlassPanel>
         </ScrollReveal>

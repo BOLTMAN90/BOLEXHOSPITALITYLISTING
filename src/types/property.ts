@@ -1,5 +1,7 @@
 export type PropertyCategory = "hotel" | "resort" | "villa" | "apartment";
 
+export type PropertyBadge = "verified" | "guest-favorite" | "luxury" | "trending";
+
 export interface Property {
   id: string;
   title: string;
@@ -14,4 +16,5 @@ export interface Property {
   featured?: boolean;
   moods?: string[];
   description: string;
+  badges?: PropertyBadge[];
 }

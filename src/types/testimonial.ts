@@ -5,4 +5,6 @@ export interface Testimonial {
   trip: string;
   avatar: string;
   rating: number;
+  verified?: boolean;
+  hasVideo?: boolean;
 }

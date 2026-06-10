@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { IMAGE_BLUR, imageSizes } from "@/lib/image-utils";
 import { stories } from "@/data/stories";
+import { cn } from "@/lib/utils";
 
 export function TravelStoryFeed() {
   const [shareOpen, setShareOpen] = useState(false);
@@ -40,19 +41,19 @@ export function TravelStoryFeed() {
 
   return (
     <div id="stories">
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <ScrollReveal>
           <p className="text-caption uppercase tracking-[0.15em] text-bolex-accent">
             Travel Story Feed
           </p>
-          <h3 className="text-h3 mt-2 text-bolex-primary">
+          <h3 className="text-h3 mt-2 text-bolex-text">
             Real journeys from our community
           </h3>
         </ScrollReveal>
         <Button
           variant="outline"
           onClick={() => setShareOpen(true)}
-          className="border-bolex-primary/20"
+          className="border-bolex-primary/15 hover:border-bolex-accent/40 hover:bg-bolex-accent/5"
         >
           <PenLine className="size-4" />
           Share Your Story
@@ -60,13 +61,22 @@ export function TravelStoryFeed() {
       </div>
 
       <ScrollReveal>
-        <div className="flex gap-4 overflow-x-auto pb-2">
-          {stories.map((story) => (
+        <div className="masonry-grid">
+          {stories.map((story, index) => (
             <article
               key={story.id}
-              className="min-w-[280px] shrink-0 overflow-hidden rounded-2xl border bg-white shadow-luxury sm:min-w-[320px]"
+              className={cn(
+                "masonry-item editorial-card luxury-glow-hover overflow-hidden",
+                index % 3 === 0 && "sm:mt-0",
+                index % 3 === 1 && "sm:mt-4"
+              )}
             >
-              <div className="relative aspect-[16/10]">
+              <div
+                className={cn(
+                  "relative overflow-hidden",
+                  index % 2 === 0 ? "aspect-[4/5]" : "aspect-[16/10]"
+                )}
+              >
                 <Image
                   src={story.image}
                   alt={story.destination}
@@ -74,28 +84,30 @@ export function TravelStoryFeed() {
                   placeholder="blur"
                   blurDataURL={IMAGE_BLUR}
                   sizes={imageSizes.story}
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-            <div className="p-4">
-              <div className="flex items-center gap-2">
-                <Avatar size="sm">
-                  <AvatarImage src={story.avatar} alt={story.username} />
-                  <AvatarFallback>{story.username[0]}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="text-sm font-medium">@{story.username}</p>
-                  <p className="text-caption text-bolex-accent">
-                    {story.destination}
-                  </p>
+              <div className="p-4">
+                <div className="flex items-center gap-2">
+                  <Avatar size="sm">
+                    <AvatarImage src={story.avatar} alt={story.username} />
+                    <AvatarFallback>{story.username[0]}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="text-sm font-medium text-bolex-text">
+                      @{story.username}
+                    </p>
+                    <p className="text-caption text-bolex-accent">
+                      {story.destination}
+                    </p>
+                  </div>
                 </div>
+                <p className="text-body mt-3 text-bolex-muted line-clamp-3">
+                  {story.excerpt}
+                </p>
               </div>
-              <p className="text-body mt-3 line-clamp-2 text-bolex-primary/70">
-                {story.excerpt}
-              </p>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
         </div>
       </ScrollReveal>
 

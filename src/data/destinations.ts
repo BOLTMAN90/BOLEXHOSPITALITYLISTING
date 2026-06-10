@@ -153,4 +153,118 @@ export const destinations: Destination[] = [
       "Luxury desert camps & hammams",
     ],
   },
+  {
+    id: "lagos",
+    name: "Lagos",
+    country: "Nigeria",
+    image:
+      "https://images.unsplash.com/photo-1598449836317-0fa3b72d6a1f?q=80&w=1200&auto=format&fit=crop",
+    propertyCount: 64,
+    startingPrice: 280,
+    currency: "USD",
+    slug: "lagos",
+    description:
+      "If you go to Lagos, this is what you will get: Atlantic beach clubs, vibrant nightlife, and a booming luxury hospitality scene along Victoria Island and Lekki. Fine dining, art galleries, and private yacht days on the lagoon.",
+    highlights: [
+      "Victoria Island luxury hotels",
+      "Lekki beach resorts & villas",
+      "Private lagoon cruises",
+      "World-class dining & nightlife",
+    ],
+  },
+  {
+    id: "abuja",
+    name: "Abuja",
+    country: "Nigeria",
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+    propertyCount: 38,
+    startingPrice: 220,
+    currency: "USD",
+    slug: "abuja",
+    description:
+      "If you go to Abuja, this is what you will get: Nigeria's polished capital with diplomatic-grade hotels, serene green landscapes, and refined business travel infrastructure. Ideal for executive stays and weekend escapes.",
+    highlights: [
+      "Five-star business hotels",
+      "Diplomatic district stays",
+      "Golf & wellness resorts",
+      "Curated city & nature tours",
+    ],
+  },
+  {
+    id: "ibadan",
+    name: "Ibadan",
+    country: "Nigeria",
+    image:
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop",
+    propertyCount: 22,
+    startingPrice: 160,
+    currency: "USD",
+    slug: "ibadan",
+    description:
+      "If you go to Ibadan, this is what you will get: Nigeria's historic cultural heart with heritage estates, boutique retreats, and access to cocoa-country landscapes. A quieter luxury alternative to the megacities.",
+    highlights: [
+      "Heritage boutique hotels",
+      "Cultural & historical tours",
+      "Nature retreats nearby",
+      "Authentic Yoruba cuisine",
+    ],
+  },
+  {
+    id: "port-harcourt",
+    name: "Port Harcourt",
+    country: "Nigeria",
+    image:
+      "https://images.unsplash.com/photo-1544551763-77ef2d0cfb3c?q=80&w=1200&auto=format&fit=crop",
+    propertyCount: 19,
+    startingPrice: 190,
+    currency: "USD",
+    slug: "port-harcourt",
+    description:
+      "If you go to Port Harcourt, this is what you will get: riverfront hospitality, executive-grade hotels, and gateway access to the Niger Delta's unique coastal culture. Premium stays for business and leisure.",
+    highlights: [
+      "Riverfront luxury hotels",
+      "Executive suites & conference stays",
+      "Seafood & local cuisine",
+      "Coastal day excursions",
+    ],
+  },
+  {
+    id: "osogbo",
+    name: "Osogbo",
+    country: "Nigeria",
+    image:
+      "https://images.unsplash.com/photo-1523805009346-744fc85aabaa?q=80&w=1200&auto=format&fit=crop",
+    propertyCount: 12,
+    startingPrice: 140,
+    currency: "USD",
+    slug: "osogbo",
+    description:
+      "If you go to Osogbo, this is what you will get: spiritual heritage at the Osun-Osogbo Sacred Grove, artisan culture, and intimate boutique stays. A soulful Nigerian destination for cultural travelers.",
+    highlights: [
+      "UNESCO sacred grove visits",
+      "Artisan & craft workshops",
+      "Boutique heritage stays",
+      "Cultural immersion experiences",
+    ],
+  },
+  {
+    id: "cape-town",
+    name: "Cape Town",
+    country: "South Africa",
+    image:
+      "https://images.unsplash.com/photo-1580060839134-c75a4e6d3eeb?q=80&w=1200&auto=format&fit=crop",
+    propertyCount: 45,
+    startingPrice: 320,
+    currency: "USD",
+    slug: "cape-town",
+    description:
+      "If you go to Cape Town, this is what you will get: Table Mountain vistas, Clifton beaches, world-class wine estates, and design-forward boutique hotels. One of Africa's most coveted luxury destinations.",
+    highlights: [
+      "Clifton & Camps Bay villas",
+      "Wine estate day trips",
+      "Table Mountain & coastal drives",
+      "Michelin-level dining scene",
+    ],
+  },
 ];

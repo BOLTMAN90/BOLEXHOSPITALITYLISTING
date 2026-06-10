@@ -3,7 +3,9 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
+import { BadgeCheck, Play } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { TravelStoryFeed } from "@/components/features/travel-story-feed";
 import { RatingStars } from "@/components/shared/rating-stars";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
@@ -52,23 +54,37 @@ export function Testimonials({
                 key={item.id}
                 className="min-w-0 shrink-0 grow-0 basis-full px-1"
               >
-                <div className="mx-auto max-w-3xl rounded-2xl bg-bolex-secondary p-8 text-center md:p-12">
-                  <RatingStars
-                    rating={item.rating}
-                    showValue={false}
-                    className="justify-center"
-                  />
-                  <blockquote className="font-heading mt-6 text-xl leading-relaxed text-bolex-primary md:text-2xl">
+                <div className="mx-auto max-w-3xl rounded-3xl border border-bolex-primary/5 bg-white p-8 text-center shadow-luxury md:p-12 luxury-glow-hover">
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    <RatingStars
+                      rating={item.rating}
+                      showValue={false}
+                      className="justify-center"
+                    />
+                    {item.verified ? (
+                      <Badge className="gap-1 bg-bolex-accent/15 text-bolex-primary hover:bg-bolex-accent/15">
+                        <BadgeCheck className="size-3" />
+                        Verified Guest
+                      </Badge>
+                    ) : null}
+                    {item.hasVideo ? (
+                      <Badge variant="secondary" className="gap-1">
+                        <Play className="size-3" />
+                        Video Review
+                      </Badge>
+                    ) : null}
+                  </div>
+                  <blockquote className="font-heading mt-6 text-xl leading-relaxed text-bolex-text md:text-2xl">
                     &ldquo;{item.quote}&rdquo;
                   </blockquote>
                   <div className="mt-8 flex flex-col items-center gap-3">
-                    <Avatar size="lg">
+                    <Avatar size="lg" className="ring-2 ring-bolex-accent/30">
                       <AvatarImage src={item.avatar} alt={item.name} />
                       <AvatarFallback>{item.name[0]}</AvatarFallback>
                     </Avatar>
                     <div>
-                      <p className="font-medium text-bolex-primary">{item.name}</p>
-                      <p className="text-caption text-muted-foreground">{item.trip}</p>
+                      <p className="font-medium text-bolex-text">{item.name}</p>
+                      <p className="text-caption text-bolex-muted">{item.trip}</p>
                     </div>
                   </div>
                 </div>
