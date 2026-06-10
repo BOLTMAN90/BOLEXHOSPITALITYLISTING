@@ -72,8 +72,8 @@ export function Navbar() {
           )}
         >
           <Image
-            src="/favicon.png"
-            alt=""
+            src="/logo.png"
+            alt="BOLEXMAN"
             width={36}
             height={36}
             className="size-8 rounded-md md:size-9"
