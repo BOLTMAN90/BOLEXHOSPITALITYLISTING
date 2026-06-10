@@ -7,15 +7,16 @@ import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { FEATURED_COLLECTIONS } from "@/lib/constants";
 import { imageSizes } from "@/lib/image-utils";
 
-export function FeaturedCollections() {
-  return (
-    <SectionWrapper
-      id="collections"
-      eyebrow="Curated For You"
-      title="Featured Collections"
-      subtitle="Editorial picks for every kind of luxury journey."
-      className="bg-bolex-secondary"
-    >
+interface FeaturedCollectionsProps {
+  showHeader?: boolean;
+  id?: string;
+}
+
+export function FeaturedCollections({
+  showHeader = true,
+  id,
+}: FeaturedCollectionsProps = {}) {
+  const content = (
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURED_COLLECTIONS.map((collection, index) => (
           <ScrollReveal key={collection.id} delay={index * 0.06}>
@@ -40,6 +41,25 @@ export function FeaturedCollections() {
           </ScrollReveal>
         ))}
       </div>
+  );
+
+  if (!showHeader) {
+    return (
+      <section id={id} className="section-padding scroll-mt-24 bg-bolex-secondary">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">{content}</div>
+      </section>
+    );
+  }
+
+  return (
+    <SectionWrapper
+      id={id ?? "collections"}
+      eyebrow="Curated For You"
+      title="Featured Collections"
+      subtitle="Editorial picks for every kind of luxury journey."
+      className="bg-bolex-secondary"
+    >
+      {content}
     </SectionWrapper>
   );
 }

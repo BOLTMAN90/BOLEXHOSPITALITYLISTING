@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { AdvancedSearch } from "@/components/home/advanced-search";
 import { BecomeHostCTA } from "@/components/home/become-host-cta";
-import { ExperiencesPreview } from "@/components/home/experiences-preview";
-import { FeaturedCollections } from "@/components/home/featured-collections";
 import { FeaturedProperties } from "@/components/home/featured-properties";
 import { HeroSection } from "@/components/home/hero-section";
-import { InteractiveMap } from "@/components/home/interactive-map";
-import { LuxuryConciergeSection } from "@/components/home/luxury-concierge-section";
+import { HomeExploreLinks } from "@/components/home/home-explore-links";
 import { Testimonials } from "@/components/home/testimonials";
 import { TrendingDestinations } from "@/components/home/trending-destinations";
 import { WhyBolexman } from "@/components/home/why-bolexman";
@@ -34,20 +31,21 @@ export default function Home() {
         </section>
         <TrendingDestinations
           id="destinations-preview"
-          limit={6}
+          limit={4}
           viewAllHref="/destinations"
         />
-        <FeaturedCollections />
         <FeaturedProperties
           id="stays-preview"
-          limit={6}
+          limit={3}
           viewAllHref="/stays"
         />
-        <InteractiveMap />
-        <ExperiencesPreview />
-        <LuxuryConciergeSection />
+        <HomeExploreLinks />
         <WhyBolexman />
-        <Testimonials id="testimonials" viewAllHref="/testimonials" />
+        <Testimonials
+          id="testimonials"
+          viewAllHref="/testimonials"
+          showStoryFeed={false}
+        />
         <BecomeHostCTA />
       </main>
     </SiteShell>

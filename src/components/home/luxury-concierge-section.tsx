@@ -22,7 +22,11 @@ const SERVICES = [
   { icon: Sparkles, title: "VIP Experiences", description: "Exclusive access, unforgettable moments" },
 ];
 
-export function LuxuryConciergeSection() {
+interface LuxuryConciergeSectionProps {
+  showCta?: boolean;
+}
+
+export function LuxuryConciergeSection({ showCta = true }: LuxuryConciergeSectionProps = {}) {
   return (
     <section className="section-padding bg-bolex-dark text-bolex-secondary">
       <div className={CONTAINER_CLASS}>
@@ -51,12 +55,14 @@ export function LuxuryConciergeSection() {
 
         <ScrollReveal className="mt-12 flex flex-col items-center gap-6">
           <TrustBar variant="dark" className="w-full max-w-4xl" />
-          <Link
-            href="/concierge"
-            className="inline-flex h-12 items-center justify-center rounded-lg bg-bolex-accent px-8 text-base font-medium text-bolex-primary transition-colors hover:bg-bolex-accent/90"
-          >
-            Request Concierge Service
-          </Link>
+          {showCta ? (
+            <Link
+              href="/concierge"
+              className="inline-flex h-12 items-center justify-center rounded-lg bg-bolex-accent px-8 text-base font-medium text-bolex-primary transition-colors hover:bg-bolex-accent/90"
+            >
+              Request Concierge Service
+            </Link>
+          ) : null}
         </ScrollReveal>
       </div>
     </section>

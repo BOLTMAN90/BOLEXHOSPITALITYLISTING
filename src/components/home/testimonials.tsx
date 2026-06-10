@@ -17,12 +17,14 @@ import { testimonials } from "@/data/testimonials";
 interface TestimonialsProps {
   viewAllHref?: string;
   showHeader?: boolean;
+  showStoryFeed?: boolean;
   id?: string;
 }
 
 export function Testimonials({
   viewAllHref,
   showHeader = true,
+  showStoryFeed = true,
   id,
 }: TestimonialsProps = {}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
@@ -110,9 +112,11 @@ export function Testimonials({
         </div>
       </ScrollReveal>
 
-      <div className="mt-16">
-        <TravelStoryFeed />
-      </div>
+      {showStoryFeed ? (
+        <div className="mt-16">
+          <TravelStoryFeed />
+        </div>
+      ) : null}
     </>
   );
 

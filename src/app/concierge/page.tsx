@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ConciergeServices } from "@/components/features/concierge-services";
+import { LuxuryConciergeSection } from "@/components/home/luxury-concierge-section";
 import { PageHero } from "@/components/layout/page-hero";
 import { SiteShell } from "@/components/layout/site-shell";
 import { CONTAINER_CLASS } from "@/lib/constants";
@@ -17,9 +18,13 @@ export default function ConciergePage() {
         title="Luxury Concierge"
         subtitle="Dedicated support before, during, and after your journey — wherever you are in the world."
       />
-      <main className="bg-bolex-secondary">
-        <section className="section-padding bg-white">
+      <main>
+        <LuxuryConciergeSection showCta={false} />
+        <section id="request" className="section-padding scroll-mt-24 bg-white">
           <div className={CONTAINER_CLASS}>
+            <p className="text-caption mb-6 uppercase tracking-[0.15em] text-bolex-accent">
+              Request a Service
+            </p>
             <ConciergeServices />
           </div>
         </section>

@@ -5,6 +5,7 @@ export const PROTECTED_PATHS = [
   "/destinations",
   "/experiences",
   "/concierge",
+  "/collections",
   "/testimonials",
   "/stories",
   "/host",
