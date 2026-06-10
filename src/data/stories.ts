@@ -21,7 +21,7 @@ export const stories: TravelStory[] = [
     excerpt:
       "The riad courtyard at sunset, mint tea in hand. Morocco stole my heart completely.",
     image:
-      "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1569381000199-9f581aba2e1f?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "s3",
@@ -43,7 +43,7 @@ export const stories: TravelStory[] = [
     excerpt:
       "Morning meditation in a bamboo forest, followed by the most serene tea ceremony.",
     image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545569341-773fdb2a84e4?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "s5",

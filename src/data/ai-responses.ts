@@ -37,9 +37,9 @@ export const aiResponses: AIResponse[] = [
 ];
 
 export const aiSuggestedPrompts = [
-  "Plan a 5-day Maldives honeymoon",
-  "Best villas under $800/night",
-  "Romantic weekend in Santorini",
-  "Family ski trip in the Alps",
-  "Wellness retreat recommendations",
+  "Best romantic villa in Bali under $600",
+  "What is the weather like in Dubai in December?",
+  "Compare Santorini vs Amalfi Coast",
+  "Cheapest luxury stays on BOLEXMAN",
+  "What should I pack for Marrakech?",
 ] as const;

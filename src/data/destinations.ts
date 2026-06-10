@@ -101,7 +101,7 @@ export const destinations: Destination[] = [
     name: "Amalfi Coast",
     country: "Italy",
     image:
-      "https://images.unsplash.com/photo-1534113414508-0bd82217ad3f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1516483638264-f4d0f3ada2e8?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 41,
     startingPrice: 690,
     currency: "USD",
@@ -120,7 +120,7 @@ export const destinations: Destination[] = [
     name: "Kyoto",
     country: "Japan",
     image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545569341-773fdb2a84e4?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 33,
     startingPrice: 520,
     currency: "USD",
@@ -139,7 +139,7 @@ export const destinations: Destination[] = [
     name: "Marrakech",
     country: "Morocco",
     image:
-      "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 27,
     startingPrice: 340,
     currency: "USD",

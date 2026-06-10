@@ -66,7 +66,7 @@ export const experiences: Experience[] = [
     title: "Kyoto Cultural Journey",
     category: "Cultural immersions",
     image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1478434203231-5e6fc0177f88?q=80&w=1200&auto=format&fit=crop",
     duration: "6 hours",
     groupSize: "Up to 6 guests",
     price: 480,

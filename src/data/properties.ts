@@ -12,8 +12,8 @@ export const properties: Property[] = [
       lng: 73.3651,
     },
     images: [
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200&auto=format&fit=crop",
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 2450,
     currency: "USD",
@@ -36,7 +36,7 @@ export const properties: Property[] = [
       lng: 25.3753,
     },
     images: [
-      "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 980,
     currency: "USD",
@@ -127,7 +127,7 @@ export const properties: Property[] = [
       lng: 14.6117,
     },
     images: [
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1602004028353-69dec7642c8c?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 890,
     currency: "USD",
@@ -149,7 +149,7 @@ export const properties: Property[] = [
       lng: 135.7681,
     },
     images: [
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 1340,
     currency: "USD",
@@ -171,7 +171,7 @@ export const properties: Property[] = [
       lng: -7.9811,
     },
     images: [
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1569381000199-9f581aba2e1f?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 480,
     currency: "USD",

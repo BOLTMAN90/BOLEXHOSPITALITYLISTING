@@ -57,8 +57,8 @@ function ChatPanel({
           <div className="rounded-xl bg-bolex-secondary/80 p-4 text-sm text-bolex-primary/70">
             <p className="font-medium text-bolex-primary">Hello, I&apos;m your BOLEXMAN travel assistant.</p>
             <p className="mt-2">
-              Ask me to plan trips, find villas, or curate experiences. Try a
-              suggested prompt below.
+              Ask me anything — BOLEXMAN stays, destinations, experiences, budgets,
+              weather, visas, packing, or trip planning. I answer based on your question.
             </p>
           </div>
         ) : null}
@@ -101,7 +101,7 @@ function ChatPanel({
         <Input
           value={input}
           onChange={(event) => setInput(event.target.value)}
-          placeholder="Ask about destinations, stays, or experiences..."
+          placeholder="Ask anything — travel, destinations, stays, tips..."
           className="h-11"
         />
         <Button

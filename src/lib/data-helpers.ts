@@ -1,4 +1,4 @@
-import { aiResponses } from "@/data/ai-responses";
+import { generateAssistantReply } from "@/lib/ai-assistant";
 import type { Property, PropertyCategory } from "@/types/property";
 import type { SearchParams } from "@/types/search";
 
@@ -34,16 +34,7 @@ export function formatSearchDates(params: SearchParams): string {
 }
 
 export function matchAIResponse(input: string): string {
-  const lower = input.toLowerCase();
-
-  const match = aiResponses.find((entry) =>
-    entry.keywords.some((keyword) => lower.includes(keyword))
-  );
-
-  return (
-    match?.response ??
-    "I'd love to help plan your journey. Tell me your destination, dates, and the mood you're going for — romantic, adventure, wellness, or celebration."
-  );
+  return generateAssistantReply(input);
 }
 
 export function getTopMoodMatches(
