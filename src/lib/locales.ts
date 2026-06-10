@@ -30,10 +30,8 @@ export const GUEST_NAV_LINKS = [{ label: "Home", href: "/" }] as const;
 /** Footer homepage sections (not used in header) */
 export const FOOTER_HOME_SECTION_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Luxury Stays", href: "/#stays-preview" },
-  { label: "Destinations", href: "/#destinations-preview" },
+  { label: "Search", href: "/#search" },
   { label: "Why BOLEXMAN", href: "/#why-bolexman" },
-  { label: "Testimonials", href: "/#testimonials" },
   { label: "Become a Host", href: "/#become-host" },
 ] as const;
 

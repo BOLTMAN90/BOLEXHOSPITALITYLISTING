@@ -3,16 +3,15 @@
 import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
-import {
-  CreditCard,
-  Globe,
-  Mail,
-  Share2,
-  ShieldCheck,
-} from "lucide-react";
+import { CreditCard, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import {
+  FacebookIcon,
+  GmailIcon,
+  InstagramIcon,
+} from "@/components/shared/social-icons";
 import { useAuthUI } from "@/contexts/auth-ui-context";
 import { useUser } from "@/contexts/user-context";
 import {
@@ -23,9 +22,21 @@ import {
 import { FOOTER_HOME_SECTION_LINKS } from "@/lib/locales";
 
 const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://instagram.com", icon: Share2 },
-  { label: "Twitter", href: "https://twitter.com", icon: Globe },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Mail },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    Icon: InstagramIcon,
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+    Icon: FacebookIcon,
+  },
+  {
+    label: "Gmail",
+    href: "mailto:belrender000@gmail.com",
+    Icon: GmailIcon,
+  },
 ] as const;
 
 export function Footer() {
@@ -101,16 +112,16 @@ export function Footer() {
               </form>
 
               <div className="flex items-center gap-3">
-                {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
+                {SOCIAL_LINKS.map(({ label, href, Icon }) => (
                   <a
                     key={label}
                     href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                     aria-label={label}
                     className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 text-bolex-secondary/80 transition-colors hover:border-bolex-accent hover:text-bolex-accent"
                   >
-                    <Icon className="size-4" />
+                    <Icon />
                   </a>
                 ))}
               </div>
