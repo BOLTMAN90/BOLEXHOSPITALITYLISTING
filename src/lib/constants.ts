@@ -1,13 +1,11 @@
-import { FOOTER_HOME_LINKS, HOME_NAV_LINKS } from "@/lib/locales";
+import { FOOTER_HOME_LINKS } from "@/lib/locales";
 
 export const SITE_NAME = "BOLEXMAN";
 export const SITE_DESCRIPTION =
   "Discover hotels, resorts, villas, apartments, and curated luxury experiences.";
 
-/** Shown in header when signed out — homepage section anchors only */
-export { HOME_NAV_LINKS };
-
 export const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "Stays", href: "/stays" },
   { label: "Destinations", href: "/destinations" },
   { label: "Experiences", href: "/experiences" },

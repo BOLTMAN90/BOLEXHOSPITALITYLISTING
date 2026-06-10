@@ -25,7 +25,8 @@ import { LocaleSelector, LocaleSelectorMobile } from "@/components/layout/locale
 import { useAuthUI } from "@/contexts/auth-ui-context";
 import { useUser } from "@/contexts/user-context";
 import { useScrollPosition } from "@/hooks/use-scroll-position";
-import { CONTAINER_CLASS, HOME_NAV_LINKS, NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { CONTAINER_CLASS, NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { GUEST_NAV_LINKS } from "@/lib/locales";
 import { navbarScroll, navbarScrollTransition } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +41,7 @@ export function Navbar() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const navLinks = user ? NAV_LINKS : HOME_NAV_LINKS;
+  const navLinks = user ? NAV_LINKS : GUEST_NAV_LINKS;
 
   const initials = user?.name
     ? user.name
