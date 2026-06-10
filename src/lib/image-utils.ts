@@ -13,6 +13,10 @@ export const imageSizes = {
   mapFallback: "(max-width: 1024px) 100vw, 60vw",
 } as const;
 
+/** Fallback when an external listing image fails to load. */
+export const FALLBACK_LISTING_IMAGE =
+  "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop";
+
 /** Request a right-sized Unsplash image instead of full-resolution originals. */
 export function optimizeUnsplashUrl(url: string, width = 1200, quality = 75) {
   if (!url.includes("images.unsplash.com")) return url;

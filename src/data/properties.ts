@@ -22,6 +22,8 @@ export const properties: Property[] = [
     amenities: ["Private pool", "Butler service", "Overwater villa", "Spa"],
     featured: true,
     moods: ["romantic", "wellness", "celebration"],
+    description:
+      "An ultra-private island resort where every villa floats above turquoise water. Expect personal butlers, a Greg Norman golf course, and dining by a Michelin-trained chef — all wrapped in barefoot luxury.",
   },
   {
     id: "canaves-oia",
@@ -34,7 +36,7 @@ export const properties: Property[] = [
       lng: 25.3753,
     },
     images: [
-      "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 980,
     currency: "USD",
@@ -43,6 +45,8 @@ export const properties: Property[] = [
     amenities: ["Caldera view", "Infinity pool", "Fine dining"],
     featured: true,
     moods: ["romantic", "celebration"],
+    description:
+      "Cliffside suites carved into Oia's volcanic rock, each with a private plunge pool facing the caldera. Sunsets from your terrace, Aegean breezes, and refined Cycladic minimalism define every moment.",
   },
   {
     id: "atlantis-royal",
@@ -64,6 +68,8 @@ export const properties: Property[] = [
     amenities: ["Sky pool", "Michelin dining", "Private beach"],
     featured: true,
     moods: ["celebration", "family", "adventure"],
+    description:
+      "Dubai's most audacious address — sky pools suspended between towers, celebrity chef restaurants, and a private beach on the Palm. Bold architecture meets impeccable Arabian hospitality.",
   },
   {
     id: "como-uma",
@@ -84,6 +90,8 @@ export const properties: Property[] = [
     reviewCount: 267,
     amenities: ["Jungle views", "Yoga pavilion", "Organic cuisine"],
     moods: ["wellness", "solo-retreat", "romantic"],
+    description:
+      "A wellness sanctuary nestled in Bali's emerald rice terraces. COMO Shambhala spa rituals, open-air yoga, and organic Indonesian cuisine restore body and mind in equal measure.",
   },
   {
     id: "chalet-mont-blanc",
@@ -105,6 +113,8 @@ export const properties: Property[] = [
     amenities: ["Ski-in access", "Private chef", "Sauna", "Fireplace"],
     featured: true,
     moods: ["adventure", "family", "celebration"],
+    description:
+      "A timber chalet with Matterhorn views, ski-in access, and a private chef who prepares fondue by the fireplace. Après-ski culture elevated to five-star comfort.",
   },
   {
     id: "belmond-caruso",
@@ -125,6 +135,8 @@ export const properties: Property[] = [
     reviewCount: 356,
     amenities: ["Infinity pool", "Garden terrace", "Concierge"],
     moods: ["romantic", "celebration"],
+    description:
+      "An 11th-century palazzo perched above the Amalfi Coast with an infinity pool that seems to float between sky and sea. Ravello's gardens, lemon groves, and coastal boat days are steps away.",
   },
   {
     id: "aman-kyoto",
@@ -145,6 +157,8 @@ export const properties: Property[] = [
     reviewCount: 178,
     amenities: ["Forest setting", "Onsen", "Tea ceremony"],
     moods: ["wellness", "solo-retreat", "romantic"],
+    description:
+      "Hidden within a moss-covered forest at the foot of Mount Hidari, Aman Kyoto offers pavilions inspired by traditional ryokan design, private onsen baths, and tea ceremonies in a living garden.",
   },
   {
     id: "riad-royal-marrakech",
@@ -165,6 +179,8 @@ export const properties: Property[] = [
     reviewCount: 203,
     amenities: ["Private courtyard", "Rooftop terrace", "Hammam"],
     moods: ["adventure", "celebration", "family"],
+    description:
+      "A restored riad in the heart of the medina with a flower-filled courtyard, rooftop terrace for stargazing, and a private hammam. The souks, palaces, and Atlas Mountains are on your doorstep.",
   },
   {
     id: "penthouse-milan",
@@ -185,6 +201,8 @@ export const properties: Property[] = [
     reviewCount: 145,
     amenities: ["City skyline view", "Private terrace", "Smart home"],
     moods: ["celebration", "solo-retreat"],
+    description:
+      "A designer penthouse overlooking the Duomo with floor-to-ceiling windows, a private terrace, and smart-home conveniences. Milan's fashion district, opera, and aperitivo culture are at your feet.",
   },
   {
     id: "oceanfront-villa-bali",
@@ -205,5 +223,7 @@ export const properties: Property[] = [
     reviewCount: 189,
     amenities: ["Ocean view", "Private pool", "Chef on request"],
     moods: ["romantic", "wellness", "family"],
+    description:
+      "A cliffside villa in Uluwatu with infinity pool, uninterrupted Indian Ocean views, and a private chef on request. Surf breaks, beach clubs, and sunset temples are minutes away.",
   },
 ];

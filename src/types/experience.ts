@@ -8,4 +8,6 @@ export interface Experience {
   price: number;
   currency: string;
   featured?: boolean;
+  description: string;
+  highlights: string[];
 }

@@ -4,14 +4,12 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, User } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -22,6 +20,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { LocaleSelector, LocaleSelectorMobile } from "@/components/layout/locale-selector";
+import { UserAvatar } from "@/components/shared/user-avatar";
 import { useAuthUI } from "@/contexts/auth-ui-context";
 import { useUser } from "@/contexts/user-context";
 import { useScrollPosition } from "@/hooks/use-scroll-position";
@@ -33,7 +32,7 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { user, signOut } = useUser();
+  const { user } = useUser();
   const { openSignIn, openSignUp } = useAuthUI();
   const isHome = pathname === "/";
   const { isScrolled } = useScrollPosition(80);
@@ -43,15 +42,6 @@ export function Navbar() {
 
   const navLinks = user ? NAV_LINKS : GUEST_NAV_LINKS;
 
-  const initials = user?.name
-    ? user.name
-        .split(" ")
-        .map((part) => part[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase()
-    : null;
-
   const navLinkClass = cn(
     "text-sm font-medium transition-colors hover:text-bolex-accent",
     showSolidNav ? "text-bolex-secondary/90" : "text-white/90"
@@ -60,12 +50,6 @@ export function Navbar() {
   const goTo = (href: string) => {
     setMobileOpen(false);
     router.push(href);
-  };
-
-  const handleSignOut = () => {
-    signOut();
-    setMobileOpen(false);
-    router.push("/");
   };
 
   return (
@@ -116,38 +100,25 @@ export function Navbar() {
             </Link>
           ) : null}
 
-          <DropdownMenu>
-            <DropdownMenuTrigger className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-bolex-accent">
-              <Avatar size="sm">
-                <AvatarFallback className="bg-bolex-accent text-bolex-primary">
-                  {initials ?? <User className="size-4" />}
-                </AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              {user ? (
-                <>
-                  <div className="px-2 py-1.5 text-xs text-muted-foreground">
-                    Signed in as {user.email}
-                  </div>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => router.push("/trips")}>
-                    My trips
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => router.push("/wishlist")}>
-                    Wishlist
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleSignOut}>Sign out</DropdownMenuItem>
-                </>
-              ) : (
-                <>
-                  <DropdownMenuItem onClick={openSignIn}>Sign in</DropdownMenuItem>
-                  <DropdownMenuItem onClick={openSignUp}>Create account</DropdownMenuItem>
-                </>
-              )}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {user ? (
+            <Link
+              href="/dashboard"
+              className="rounded-full outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-bolex-accent"
+              aria-label="Open account dashboard"
+            >
+              <UserAvatar user={user} />
+            </Link>
+          ) : (
+            <DropdownMenu>
+              <DropdownMenuTrigger className="rounded-full outline-none focus-visible:ring-2 focus-visible:ring-bolex-accent">
+                <UserAvatar user={null} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={openSignIn}>Sign in</DropdownMenuItem>
+                <DropdownMenuItem onClick={openSignUp}>Create account</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
 
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -196,24 +167,11 @@ export function Navbar() {
                     List Your Property
                   </Button>
                   <Button
-                    variant="outline"
-                    className="w-full border-white/20 bg-transparent text-bolex-secondary hover:bg-white/5"
-                    onClick={() => goTo("/trips")}
+                    className="w-full gap-2 bg-bolex-accent text-bolex-primary hover:bg-bolex-accent/90"
+                    onClick={() => goTo("/dashboard")}
                   >
-                    My trips
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full border-white/20 bg-transparent text-bolex-secondary hover:bg-white/5"
-                    onClick={() => goTo("/wishlist")}
-                  >
-                    Wishlist
-                  </Button>
-                  <Button
-                    className="w-full bg-bolex-accent text-bolex-primary hover:bg-bolex-accent/90"
-                    onClick={handleSignOut}
-                  >
-                    Sign out
+                    <UserAvatar user={user} size="sm" />
+                    My account
                   </Button>
                 </>
               ) : (

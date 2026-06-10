@@ -12,17 +12,34 @@ interface CuratedExperiencesProps {
   showConcierge?: boolean;
   viewAllHref?: string;
   showHeader?: boolean;
+  showAll?: boolean;
 }
 
 export function CuratedExperiences({
   showConcierge = true,
   viewAllHref,
   showHeader = true,
+  showAll = false,
 }: CuratedExperiencesProps = {}) {
   const featured = experiences.find((e) => e.featured) ?? experiences[0];
-  const rest = experiences.filter((e) => e.id !== featured.id).slice(0, 4);
+  const rest = showAll
+    ? experiences.filter((e) => e.id !== featured.id)
+    : experiences.filter((e) => e.id !== featured.id).slice(0, 4);
 
-  const content = (
+  const content = showAll ? (
+    <>
+      <ScrollReveal>
+        <ExperienceCard experience={featured} featured className="mb-6" />
+      </ScrollReveal>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {rest.map((experience, index) => (
+          <ScrollReveal key={experience.id} delay={index * 0.05}>
+            <ExperienceCard experience={experience} />
+          </ScrollReveal>
+        ))}
+      </div>
+    </>
+  ) : (
     <>
       <div className="grid gap-6 lg:grid-cols-2 lg:grid-rows-2">
         <ScrollReveal className="lg:row-span-2">

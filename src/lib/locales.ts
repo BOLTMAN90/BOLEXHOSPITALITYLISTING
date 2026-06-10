@@ -33,7 +33,7 @@ export const FOOTER_HOME_SECTION_LINKS = [
   { label: "Luxury Stays", href: "/#stays-preview" },
   { label: "Destinations", href: "/#destinations-preview" },
   { label: "Why BOLEXMAN", href: "/#why-bolexman" },
-  { label: "Guest Stories", href: "/#testimonials" },
+  { label: "Testimonials", href: "/#testimonials" },
   { label: "Become a Host", href: "/#become-host" },
 ] as const;
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,7 @@ export function SignInDialog({
   onOpenChange,
   onSwitchToSignUp,
 }: SignInDialogProps) {
+  const router = useRouter();
   const { signIn } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,6 +41,7 @@ export function SignInDialog({
     setEmail("");
     setPassword("");
     onOpenChange(false);
+    router.push("/dashboard");
   };
 
   return (

@@ -35,7 +35,7 @@ export default function Home() {
         />
         <WhyBolexman />
         <HomeExploreLinks />
-        <Testimonials id="testimonials" viewAllHref="/stories" />
+        <Testimonials id="testimonials" viewAllHref="/testimonials" />
         <BecomeHostCTA />
       </main>
     </SiteShell>

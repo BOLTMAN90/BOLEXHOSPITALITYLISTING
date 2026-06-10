@@ -111,12 +111,12 @@ export function Testimonials({
   return (
     <SectionWrapper
       id={id}
-      eyebrow="Guest Stories"
-      title="Testimonials & Reviews"
+      eyebrow="Testimonials"
+      title="Guest Reviews"
       subtitle="Hear from travelers who discovered their perfect journey with BOLEXMAN."
       className="bg-white"
       action={
-        viewAllHref ? <ViewAllLink href={viewAllHref} label="All stories" /> : undefined
+        viewAllHref ? <ViewAllLink href={viewAllHref} label="All testimonials" /> : undefined
       }
     >
       {content}

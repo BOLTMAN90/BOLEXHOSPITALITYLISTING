@@ -17,7 +17,7 @@ export default function ExperiencesPage() {
         subtitle="Unforgettable moments crafted by world-class hosts and concierge partners."
       />
       <main className="bg-bolex-secondary">
-        <CuratedExperiences showConcierge={false} showHeader={false} />
+        <CuratedExperiences showConcierge={false} showHeader={false} showAll />
       </main>
     </SiteShell>
   );

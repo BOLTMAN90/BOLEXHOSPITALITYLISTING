@@ -13,4 +13,5 @@ export interface Property {
   amenities: string[];
   featured?: boolean;
   moods?: string[];
+  description: string;
 }

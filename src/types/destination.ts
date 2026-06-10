@@ -7,4 +7,6 @@ export interface Destination {
   startingPrice: number;
   currency: string;
   slug: string;
+  description: string;
+  highlights: string[];
 }

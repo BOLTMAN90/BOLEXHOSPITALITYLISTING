@@ -10,7 +10,7 @@ export const NAV_LINKS = [
   { label: "Destinations", href: "/destinations" },
   { label: "Experiences", href: "/experiences" },
   { label: "Concierge", href: "/concierge" },
-  { label: "Stories", href: "/stories" },
+  { label: "Testimonials", href: "/testimonials" },
 ] as const;
 
 export const FOOTER_LINKS = {
@@ -33,7 +33,7 @@ export const FOOTER_LINKS = {
   ],
   support: [
     { label: "Concierge", href: "/concierge" },
-    { label: "Guest Stories", href: "/stories" },
+    { label: "Testimonials", href: "/testimonials" },
     { label: "Contact", href: "/concierge" },
   ],
 } as const;
