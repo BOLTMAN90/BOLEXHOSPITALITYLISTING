@@ -137,14 +137,22 @@ export const LUXURY_CONCIERGE_SERVICES = [
   { id: "vip", title: "VIP Experiences", icon: "sparkles" },
 ] as const;
 
-export const NAV_LINKS = [
+export const NAV_LINKS_PRIMARY = [
   { label: "Home", href: "/" },
   { label: "Stays", href: "/stays" },
   { label: "Destinations", href: "/destinations" },
   { label: "Experiences", href: "/experiences" },
+] as const;
+
+export const NAV_LINKS_MORE = [
   { label: "Collections", href: "/collections" },
   { label: "Concierge", href: "/concierge" },
   { label: "Testimonials", href: "/testimonials" },
+] as const;
+
+export const NAV_LINKS = [
+  ...NAV_LINKS_PRIMARY,
+  ...NAV_LINKS_MORE,
 ] as const;
 
 export const FOOTER_LINKS = {

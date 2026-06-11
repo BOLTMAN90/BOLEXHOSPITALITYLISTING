@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -24,7 +24,13 @@ import { UserAvatar } from "@/components/shared/user-avatar";
 import { useAuthUI } from "@/contexts/auth-ui-context";
 import { useUser } from "@/contexts/user-context";
 import { useScrollPosition } from "@/hooks/use-scroll-position";
-import { CONTAINER_CLASS, NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import {
+  CONTAINER_CLASS,
+  NAV_LINKS,
+  NAV_LINKS_MORE,
+  NAV_LINKS_PRIMARY,
+  SITE_NAME,
+} from "@/lib/constants";
 import { GUEST_NAV_LINKS } from "@/lib/locales";
 import { navbarScroll, navbarScrollTransition } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -41,9 +47,12 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = user ? NAV_LINKS : GUEST_NAV_LINKS;
+  const primaryLinks = user ? NAV_LINKS_PRIMARY : GUEST_NAV_LINKS;
+  const moreLinks = user ? NAV_LINKS_MORE : [];
+  const isMoreActive = moreLinks.some((link) => link.href === pathname);
 
   const navLinkClass = cn(
-    "whitespace-nowrap text-sm font-medium tracking-wide transition-colors hover:text-bolex-accent",
+    "whitespace-nowrap px-1.5 text-sm font-medium tracking-wide transition-colors hover:text-bolex-accent",
     showSolidNav ? "text-bolex-secondary/90" : "text-white/90"
   );
 
@@ -65,29 +74,84 @@ export function Navbar() {
       <div
         className={cn(
           CONTAINER_CLASS,
-          "grid h-16 grid-cols-[auto_1fr_auto] items-center gap-6 lg:gap-10"
+          "flex h-16 items-center justify-between gap-6 xl:gap-10"
         )}
       >
         <Link
           href="/"
           className={cn(
-            "font-heading shrink-0 text-xl font-medium tracking-[0.12em] transition-opacity hover:opacity-90 md:text-2xl",
+            "relative z-10 shrink-0 font-heading text-lg font-medium tracking-[0.1em] transition-opacity hover:opacity-90 sm:text-xl xl:text-2xl",
             showSolidNav ? "text-bolex-secondary" : "text-white"
           )}
         >
           {SITE_NAME}
         </Link>
 
-        <nav className="hidden min-w-0 items-center justify-center gap-7 xl:gap-10 lg:flex">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={navLinkClass}>
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {user ? (
+          <nav
+            aria-label="Main navigation"
+            className="hidden min-w-0 flex-1 items-center justify-center gap-x-6 2xl:gap-x-10 xl:flex"
+          >
+            {primaryLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  navLinkClass,
+                  pathname === link.href && "text-bolex-accent"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
 
-        <div className="flex items-center justify-end gap-3 lg:gap-4">
-          <div className="hidden items-center gap-3 lg:flex">
+            {moreLinks.length > 0 ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "inline-flex items-center gap-1 whitespace-nowrap px-1.5 text-sm font-medium tracking-wide outline-none transition-colors hover:text-bolex-accent focus-visible:text-bolex-accent",
+                    showSolidNav ? "text-bolex-secondary/90" : "text-white/90",
+                    isMoreActive && "text-bolex-accent"
+                  )}
+                >
+                  More
+                  <ChevronDown className="size-3.5 opacity-70" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="min-w-44">
+                  {moreLinks.map((link) => (
+                    <DropdownMenuItem
+                      key={link.href}
+                      onClick={() => router.push(link.href)}
+                    >
+                      {link.label}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : null}
+          </nav>
+        ) : (
+          <nav
+            aria-label="Main navigation"
+            className="hidden min-w-0 flex-1 items-center justify-center xl:flex"
+          >
+            {primaryLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  navLinkClass,
+                  pathname === link.href && "text-bolex-accent"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        )}
+
+        <div className="relative z-10 flex shrink-0 items-center justify-end gap-2 sm:gap-3 xl:gap-4">
+          <div className="hidden items-center gap-2 sm:gap-3 xl:flex">
             <LocaleSelector
               triggerClassName={showSolidNav ? "text-bolex-secondary" : "text-white"}
             />
@@ -96,13 +160,14 @@ export function Navbar() {
               <Link
                 href="/host#list-your-property"
                 className={cn(
-                  "inline-flex h-9 items-center justify-center rounded-lg border border-white/20 px-4 text-sm font-medium transition-colors hover:bg-white/10",
+                  "inline-flex h-9 items-center justify-center rounded-lg border border-white/20 px-3 text-sm font-medium transition-colors hover:bg-white/10 2xl:px-4",
                   showSolidNav
                     ? "text-bolex-secondary hover:text-bolex-secondary"
                     : "text-white"
                 )}
               >
-                List Your Property
+                <span className="2xl:hidden">List Property</span>
+                <span className="hidden 2xl:inline">List Your Property</span>
               </Link>
             ) : null}
 
@@ -130,7 +195,7 @@ export function Navbar() {
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
               className={cn(
-                "inline-flex size-10 items-center justify-center rounded-lg transition-colors hover:bg-white/10 lg:hidden",
+                "inline-flex size-10 items-center justify-center rounded-lg transition-colors hover:bg-white/10 xl:hidden",
                 showSolidNav ? "text-bolex-secondary" : "text-white"
               )}
             >
