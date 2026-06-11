@@ -41,6 +41,7 @@ const SOCIAL_LINKS = [
 
 export function Footer() {
   const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const { user } = useUser();
   const { openSignIn } = useAuthUI();
 
@@ -63,14 +64,38 @@ export function Footer() {
     toast.message("Sign in to access this section.");
   };
 
-  const handleNewsletter = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleNewsletter = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!email.trim()) {
+    const trimmed = email.trim();
+
+    if (!trimmed) {
       toast.error("Please enter your email address.");
       return;
     }
-    toast.success("Welcome to BOLEXMAN. You're subscribed to our newsletter.");
-    setEmail("");
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        toast.error(data.error ?? "Unable to subscribe right now.");
+        return;
+      }
+
+      toast.success("Welcome to BOLEXMAN. You're subscribed to our newsletter.");
+      setEmail("");
+    } catch {
+      toast.error("Unable to subscribe right now. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -104,9 +129,10 @@ export function Footer() {
                   />
                   <Button
                     type="submit"
+                    disabled={submitting}
                     className="h-10 bg-bolex-accent px-5 text-bolex-primary hover:bg-bolex-accent/90"
                   >
-                    Subscribe
+                    {submitting ? "Subscribing..." : "Subscribe"}
                   </Button>
                 </div>
               </form>
