@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
 import { PenLine } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { GuestAvatar } from "@/components/shared/guest-avatar";
+import { ListingImage } from "@/components/shared/listing-image";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
-import { IMAGE_BLUR, imageSizes } from "@/lib/image-utils";
+import { imageSizes } from "@/lib/image-utils";
 import { stories } from "@/data/stories";
 import { cn } from "@/lib/utils";
 
@@ -77,22 +77,16 @@ export function TravelStoryFeed() {
                   index % 2 === 0 ? "aspect-[4/5]" : "aspect-[16/10]"
                 )}
               >
-                <Image
+                <ListingImage
                   src={story.image}
                   alt={story.destination}
-                  fill
-                  placeholder="blur"
-                  blurDataURL={IMAGE_BLUR}
                   sizes={imageSizes.story}
-                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  className="transition-transform duration-700 hover:scale-105"
                 />
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-2">
-                  <Avatar size="sm">
-                    <AvatarImage src={story.avatar} alt={story.username} />
-                    <AvatarFallback>{story.username[0]}</AvatarFallback>
-                  </Avatar>
+                  <GuestAvatar src={story.avatar} name={story.username} size="sm" />
                   <div>
                     <p className="text-sm font-medium text-bolex-text">
                       @{story.username}

@@ -108,7 +108,7 @@ export const properties: Property[] = [
       lng: 7.7491,
     },
     images: [
-      "https://images.unsplash.com/photo-1510796657865-4aa892e17309?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1518814740354-af9d096a8f3c?q=80&w=1200&auto=format&fit=crop",
     ],
     pricePerNight: 1850,
     currency: "USD",

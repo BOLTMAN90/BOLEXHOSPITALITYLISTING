@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 import { BadgeCheck, Play } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { GuestAvatar } from "@/components/shared/guest-avatar";
 import { Badge } from "@/components/ui/badge";
 import { TravelStoryFeed } from "@/components/features/travel-story-feed";
 import { RatingStars } from "@/components/shared/rating-stars";
@@ -80,10 +80,7 @@ export function Testimonials({
                     &ldquo;{item.quote}&rdquo;
                   </blockquote>
                   <div className="mt-8 flex flex-col items-center gap-3">
-                    <Avatar size="lg" className="ring-2 ring-bolex-accent/30">
-                      <AvatarImage src={item.avatar} alt={item.name} />
-                      <AvatarFallback>{item.name[0]}</AvatarFallback>
-                    </Avatar>
+                    <GuestAvatar src={item.avatar} name={item.name} size="lg" />
                     <div>
                       <p className="font-medium text-bolex-text">{item.name}</p>
                       <p className="text-caption text-bolex-muted">{item.trip}</p>

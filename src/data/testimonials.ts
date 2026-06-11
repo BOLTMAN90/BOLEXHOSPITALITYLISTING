@@ -8,7 +8,7 @@ export const testimonials: Testimonial[] = [
     name: "Elena & Marco Rossi",
     trip: "Santorini · 7 nights",
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&h=200&auto=format&fit=crop&crop=face",
     rating: 5,
     verified: true,
     hasVideo: true,
@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
     name: "James Whitfield",
     trip: "Marrakech · 5 nights",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&h=200&auto=format&fit=crop&crop=face",
     rating: 5,
     verified: true,
   },
@@ -31,7 +31,7 @@ export const testimonials: Testimonial[] = [
     name: "Priya & Arjun Mehta",
     trip: "Maldives · 10 nights",
     avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=200&h=200&auto=format&fit=crop&crop=face",
     rating: 5,
     verified: true,
     hasVideo: true,
@@ -43,7 +43,7 @@ export const testimonials: Testimonial[] = [
     name: "Sophie Laurent",
     trip: "Kyoto · 4 nights",
     avatar:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&h=200&auto=format&fit=crop&crop=face",
     rating: 5,
     verified: true,
   },
@@ -54,7 +54,7 @@ export const testimonials: Testimonial[] = [
     name: "The Anderson Family",
     trip: "Swiss Alps · 6 nights",
     avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&auto=format&fit=crop&crop=face",
     rating: 5,
     verified: true,
   },

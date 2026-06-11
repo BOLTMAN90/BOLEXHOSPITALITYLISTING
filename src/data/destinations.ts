@@ -158,7 +158,7 @@ export const destinations: Destination[] = [
     name: "Lagos",
     country: "Nigeria",
     image:
-      "https://images.unsplash.com/photo-1598449836317-0fa3b72d6a1f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1688989054876-029c25961475?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 64,
     startingPrice: 280,
     currency: "USD",
@@ -177,7 +177,7 @@ export const destinations: Destination[] = [
     name: "Abuja",
     country: "Nigeria",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 38,
     startingPrice: 220,
     currency: "USD",
@@ -196,7 +196,7 @@ export const destinations: Destination[] = [
     name: "Ibadan",
     country: "Nigeria",
     image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1489399710382-0f3167310fe2?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 22,
     startingPrice: 160,
     currency: "USD",
@@ -215,7 +215,7 @@ export const destinations: Destination[] = [
     name: "Port Harcourt",
     country: "Nigeria",
     image:
-      "https://images.unsplash.com/photo-1544551763-77ef2d0cfb3c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1559827264-dabc46b68377?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 19,
     startingPrice: 190,
     currency: "USD",
@@ -234,7 +234,7 @@ export const destinations: Destination[] = [
     name: "Osogbo",
     country: "Nigeria",
     image:
-      "https://images.unsplash.com/photo-1523805009346-744fc85aabaa?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1577969575258-0f067915cf75?q=80&w=1200&auto=format&fit=crop",
     propertyCount: 12,
     startingPrice: 140,
     currency: "USD",

@@ -7,6 +7,7 @@ import { ViewAllLink } from "@/components/shared/view-all-link";
 import { SectionWrapper } from "@/components/layout/section-wrapper";
 import { properties } from "@/data/properties";
 import { filterPropertiesByCategory } from "@/lib/data-helpers";
+import { filterPropertiesByCollection, getCollectionLabel } from "@/lib/collection-filters";
 import { PROPERTY_CATEGORIES, CONTAINER_CLASS } from "@/lib/constants";
 import type { PropertyType } from "@/types/search";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,7 @@ interface FeaturedPropertiesProps {
   viewAllHref?: string;
   showHeader?: boolean;
   id?: string;
+  collection?: string | null;
 }
 
 export function FeaturedProperties({
@@ -23,13 +25,24 @@ export function FeaturedProperties({
   viewAllHref,
   showHeader = true,
   id,
+  collection = null,
 }: FeaturedPropertiesProps = {}) {
   const [activeCategory, setActiveCategory] = useState<PropertyType>("all");
-  const filtered = filterPropertiesByCategory(properties, activeCategory);
+  const collectionLabel = getCollectionLabel(collection);
+  const byCollection = filterPropertiesByCollection(properties, collection);
+  const filtered = filterPropertiesByCategory(byCollection, activeCategory);
   const displayed = limit ? filtered.slice(0, limit) : filtered;
 
   const content = (
     <>
+      {collectionLabel ? (
+        <ScrollReveal>
+          <p className="mb-6 rounded-2xl border border-bolex-accent/20 bg-bolex-accent/5 px-4 py-3 text-sm text-bolex-primary">
+            Showing stays curated for <strong>{collectionLabel.title}</strong>.
+          </p>
+        </ScrollReveal>
+      ) : null}
+
       <ScrollReveal>
         <div className="mb-8 flex flex-wrap gap-2">
           {PROPERTY_CATEGORIES.map((cat) => (

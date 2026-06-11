@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { FeaturedProperties } from "@/components/home/featured-properties";
-import { InteractiveMap } from "@/components/home/interactive-map";
-import { PageHero } from "@/components/layout/page-hero";
+import { Suspense } from "react";
+import { StaysPageContent } from "@/components/home/stays-page-content";
 import { SiteShell } from "@/components/layout/site-shell";
 
 export const metadata: Metadata = {
@@ -12,15 +11,9 @@ export const metadata: Metadata = {
 export default function StaysPage() {
   return (
     <SiteShell>
-      <PageHero
-        eyebrow="Handpicked"
-        title="Featured Luxury Properties"
-        subtitle="Filter by category, preview on the map, and find your next extraordinary stay."
-      />
-      <main className="bg-bolex-secondary">
-        <FeaturedProperties showHeader={false} />
-        <InteractiveMap showHeader={false} />
-      </main>
+      <Suspense>
+        <StaysPageContent />
+      </Suspense>
     </SiteShell>
   );
 }

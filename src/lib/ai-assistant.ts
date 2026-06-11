@@ -193,8 +193,16 @@ function handleGreeting(query: string): string | null {
 
 function handleGeneralKnowledge(query: string): string | null {
   const q = normalize(query);
+  const mentionsKnownDest = destinations.some(
+    (d) =>
+      q.includes(normalize(d.name)) ||
+      q.includes(normalize(d.id.replace("-", " ")))
+  );
+  if (mentionsKnownDest) return null;
+
   for (const entry of GENERAL_KNOWLEDGE) {
-    if (entry.keywords.some((kw) => q.includes(kw))) {
+    const hits = entry.keywords.filter((kw) => q.includes(kw)).length;
+    if (hits >= 1 && entry.keywords.some((kw) => q.includes(kw))) {
       return entry.answer;
     }
   }
@@ -291,8 +299,41 @@ function buildDataDrivenReply(query: string): string {
   return "";
 }
 
-export function generateAssistantReply(query: string): string {
+export interface ChatTurn {
+  role: "user" | "assistant";
+  content: string;
+}
+
+function enrichQuery(query: string, history: ChatTurn[]): string {
   const trimmed = query.trim();
+  if (history.length === 0) return trimmed;
+
+  const lastUser = [...history].reverse().find((m) => m.role === "user")?.content;
+  const isFollowUp =
+    trimmed.split(/\s+/).length <= 6 ||
+    /^(what about|how about|and |also |tell me more|any |more |what|where|how|which|can you|restaurants?|food|transport|hotels?|stays?|budget|price|yes|no)/i.test(
+      trimmed
+    );
+
+  if (isFollowUp && lastUser) {
+    return `${trimmed} (following up on: ${lastUser})`;
+  }
+  return trimmed;
+}
+
+function hasCatalogMatch(query: string): boolean {
+  const propertyScores = properties.map((p) => scoreProperty(p, query));
+  const destinationScores = destinations.map((d) => scoreDestination(d, query));
+  const experienceScores = experiences.map((e) => scoreExperience(e, query));
+  const best = Math.max(0, ...propertyScores, ...destinationScores, ...experienceScores);
+  return best >= 5;
+}
+
+export function generateAssistantReply(
+  query: string,
+  history: ChatTurn[] = []
+): string {
+  const trimmed = enrichQuery(query, history);
   if (!trimmed) {
     return "Please type a question and I'll answer based on what you need — destinations, stays, experiences, budgets, or general travel advice.";
   }
@@ -300,13 +341,14 @@ export function generateAssistantReply(query: string): string {
   const greeting = handleGreeting(trimmed);
   if (greeting) return greeting;
 
-  const general = handleGeneralKnowledge(trimmed);
-  if (general) return general;
+  const dataReply = buildDataDrivenReply(trimmed);
+  if (dataReply && hasCatalogMatch(trimmed)) {
+    return stripMarkdownForPlain(dataReply);
+  }
 
   const offCatalog = handleOffCatalogDestination(trimmed);
   if (offCatalog) return offCatalog;
 
-  const dataReply = buildDataDrivenReply(trimmed);
   if (dataReply) return stripMarkdownForPlain(dataReply);
 
   const q = normalize(trimmed);
@@ -352,5 +394,8 @@ export function generateAssistantReply(query: string): string {
     return `We have ${properties.length} verified luxury properties across hotels, resorts, villas, and apartments. Name a destination (e.g. Bali, Dubai, Santorini) or budget and I'll list the best matches for your question.`;
   }
 
-  return `You asked: "${trimmed}"\n\nI can help with BOLEXMAN stays, destinations, experiences, pricing, and general travel planning (weather, visas, packing, flights). Try being specific — e.g. "Best romantic villa in Bali under $600" or "What should I pack for Marrakech in October?" — and I'll answer directly.`;
+  const general = handleGeneralKnowledge(trimmed);
+  if (general) return general;
+
+  return `You asked: "${query.trim()}"\n\nI can help with BOLEXMAN stays, destinations, experiences, pricing, and general travel planning (weather, visas, packing, flights). Try being specific — e.g. "Best romantic villa in Bali under $600" or "What should I pack for Marrakech in October?" — and I'll answer directly.`;
 }

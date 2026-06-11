@@ -21,12 +21,11 @@ import { useAiAssistant } from "@/components/features/ai-assistant-context";
 import { aiSuggestedPrompts } from "@/data/ai-responses";
 import { useIsMobile } from "@/hooks/use-media-query";
 import { matchAIResponse } from "@/lib/data-helpers";
+import type { ChatTurn } from "@/lib/ai-assistant";
 import { cn } from "@/lib/utils";
 
-interface ChatMessage {
+interface ChatMessage extends ChatTurn {
   id: string;
-  role: "user" | "assistant";
-  content: string;
 }
 
 function ChatPanel({
@@ -43,17 +42,19 @@ function ChatPanel({
   onPrompt: (prompt: string) => void;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({
-      top: scrollRef.current.scrollHeight,
-      behavior: "smooth",
-    });
+    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages]);
 
   return (
-    <div className="flex h-full min-h-[420px] flex-col">
-      <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto pr-1">
+    <div className="flex h-full min-h-0 flex-col">
+      <div
+        ref={scrollRef}
+        className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain pr-2"
+        style={{ maxHeight: "100%" }}
+      >
         {messages.length === 0 ? (
           <div className="rounded-xl bg-bolex-secondary/80 p-4 text-sm text-bolex-primary/70">
             <p className="font-medium text-bolex-primary">Hello, I&apos;m BOLEXMAN AI.</p>
@@ -68,7 +69,7 @@ function ChatPanel({
           <div
             key={message.id}
             className={cn(
-              "max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed",
+              "max-w-[90%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap",
               message.role === "user"
                 ? "ml-auto bg-bolex-primary text-white"
                 : "bg-bolex-secondary text-bolex-primary"
@@ -77,9 +78,10 @@ function ChatPanel({
             {message.content}
           </div>
         ))}
+        <div ref={bottomRef} aria-hidden className="h-1 shrink-0" />
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4 shrink-0 flex flex-wrap gap-2">
         {aiSuggestedPrompts.map((prompt) => (
           <button
             key={prompt}
@@ -93,7 +95,7 @@ function ChatPanel({
       </div>
 
       <form
-        className="mt-4 flex gap-2"
+        className="mt-4 flex shrink-0 gap-2"
         onSubmit={(event) => {
           event.preventDefault();
           onSend();
@@ -132,6 +134,11 @@ export function AITravelAssistant() {
     const trimmed = text.trim();
     if (!trimmed) return;
 
+    const history: ChatTurn[] = messages.map(({ role, content }) => ({
+      role,
+      content,
+    }));
+
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
       role: "user",
@@ -139,9 +146,9 @@ export function AITravelAssistant() {
     };
 
     const assistantMessage: ChatMessage = {
-      id: `assistant-${Date.now()}`,
+      id: `assistant-${Date.now() + 1}`,
       role: "assistant",
-      content: matchAIResponse(trimmed),
+      content: matchAIResponse(trimmed, history),
     };
 
     setMessages((prev) => [...prev, userMessage, assistantMessage]);
@@ -172,28 +179,30 @@ export function AITravelAssistant() {
 
       {isMobile ? (
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetContent side="bottom" className="h-[85vh] rounded-t-3xl">
-            <SheetHeader>
+          <SheetContent side="bottom" className="flex h-[85vh] flex-col rounded-t-3xl">
+            <SheetHeader className="shrink-0">
               <SheetTitle className="font-heading flex items-center gap-2 text-left">
                 <Bot className="size-5 text-bolex-accent" />
                 AI Travel Assistant
               </SheetTitle>
             </SheetHeader>
-            <div className="flex-1 overflow-hidden px-1 pb-6 pt-4">
+            <div className="min-h-0 flex-1 overflow-hidden px-1 pb-6 pt-4">
               <ChatPanel {...chatProps} />
             </div>
           </SheetContent>
         </Sheet>
       ) : (
         <Dialog open={open} onOpenChange={setOpen}>
-          <DialogContent className="max-w-lg gap-4">
-            <DialogHeader>
+          <DialogContent className="flex max-h-[85vh] max-w-lg flex-col gap-4 overflow-hidden">
+            <DialogHeader className="shrink-0">
               <DialogTitle className="font-heading flex items-center gap-2">
                 <Bot className="size-5 text-bolex-accent" />
                 AI Travel Assistant
               </DialogTitle>
             </DialogHeader>
-            <ChatPanel {...chatProps} />
+            <div className="min-h-0 flex-1 overflow-hidden">
+              <ChatPanel {...chatProps} />
+            </div>
           </DialogContent>
         </Dialog>
       )}

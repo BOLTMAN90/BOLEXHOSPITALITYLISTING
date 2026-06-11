@@ -1,4 +1,4 @@
-import { generateAssistantReply } from "@/lib/ai-assistant";
+import { generateAssistantReply, type ChatTurn } from "@/lib/ai-assistant";
 import type { Property, PropertyCategory } from "@/types/property";
 import type { SearchParams } from "@/types/search";
 
@@ -33,8 +33,8 @@ export function formatSearchDates(params: SearchParams): string {
   return `${formatter.format(params.checkIn)} – ${formatter.format(params.checkOut)}`;
 }
 
-export function matchAIResponse(input: string): string {
-  return generateAssistantReply(input);
+export function matchAIResponse(input: string, history: ChatTurn[] = []): string {
+  return generateAssistantReply(input, history);
 }
 
 export function getTopMoodMatches(

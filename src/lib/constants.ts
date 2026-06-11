@@ -35,48 +35,48 @@ export const FEATURED_COLLECTIONS = [
     title: "Beachfront Villas",
     subtitle: "Oceanfront sanctuaries",
     image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1499799480376-afde1c144993?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays?collection=beachfront",
   },
   {
     id: "romantic",
     title: "Romantic Escapes",
     subtitle: "For two, perfectly curated",
     image:
-      "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?q=80&w=1200&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1520250497590-86b2e8e2e627?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays?collection=romantic",
   },
   {
     id: "family",
     title: "Family Retreats",
     subtitle: "Space, comfort & adventure",
     image:
-      "https://images.unsplash.com/photo-1510796657865-4aa892e17309?q=80&w=1200&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays?collection=family",
   },
   {
     id: "resorts",
     title: "Luxury Resorts",
     subtitle: "World-class hospitality",
     image:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1200&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1571008883437-250e7250d189?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays?collection=resorts",
   },
   {
     id: "business",
     title: "Business Travel",
     subtitle: "Effortless city stays",
     image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1564501049412-61c2c3073678?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays?collection=business",
   },
   {
     id: "weekend",
     title: "Weekend Getaways",
     subtitle: "Short escapes, lasting memories",
     image:
-      "https://images.unsplash.com/photo-1516483638264-f4d0f3ada2e8?q=80&w=1200&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1501117716984-bcf3f0430689?q=80&w=1200&auto=format&fit=crop",
+    href: "/stays?collection=weekend",
   },
 ] as const;
 
@@ -86,8 +86,8 @@ export const SIGNATURE_COLLECTIONS = [
     title: "Presidential Suites",
     subtitle: "The pinnacle of hospitality",
     image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1600&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1560185007-5f0bb1868b9e?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays?collection=presidential",
     featured: true,
   },
   {
@@ -95,8 +95,8 @@ export const SIGNATURE_COLLECTIONS = [
     title: "Beachfront Villas",
     subtitle: "Oceanfront sanctuaries",
     image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1600&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays?collection=beachfront-villas",
     featured: false,
   },
   {
@@ -104,8 +104,8 @@ export const SIGNATURE_COLLECTIONS = [
     title: "Private Islands",
     subtitle: "Ultimate seclusion",
     image:
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1600&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1540541337866-417a1742b781?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays?collection=private-islands",
     featured: false,
   },
   {
@@ -114,7 +114,7 @@ export const SIGNATURE_COLLECTIONS = [
     subtitle: "World-class service",
     image:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1600&auto=format&fit=crop",
-    href: "/stays",
+    href: "/stays?collection=luxury-resorts",
     featured: false,
   },
   {
@@ -122,8 +122,8 @@ export const SIGNATURE_COLLECTIONS = [
     title: "Penthouse Apartments",
     subtitle: "Skyline living elevated",
     image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
-    href: "/stays",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1600&auto=format&fit=crop",
+    href: "/stays?collection=penthouses",
     featured: false,
   },
 ] as const;
